@@ -7,7 +7,6 @@ from tkinter import ttk, scrolledtext, messagebox
 import threading
 import json
 
-from config import OPENAI_API_KEY, MODEL
 from planner import TaskPlanner
 from code_generator import CodeGenerator
 from pybullet_env import PyBulletEnv
@@ -42,16 +41,17 @@ class CaPGUI:
       底部  — 狀態列
     """
 
-    def __init__(self, root: tk.Tk):
+    def __init__(self, root: tk.Tk, use_gemini: bool = False):
         self.root = root
         self.root.title("CaP Robot System — Emotional Suction Arm")
         self.root.configure(bg=BG_DARK)
         self.root.geometry("980x700")
         self.root.minsize(820, 580)
+        self.use_gemini = use_gemini
 
         # 系統元件
-        self.planner   = TaskPlanner()
-        self.codegen   = CodeGenerator()
+        self.planner   = TaskPlanner(use_gemini=use_gemini)
+        self.codegen   = CodeGenerator(use_gemini=use_gemini)
         self.sim_env   = None     # PyBulletEnv（第一次 Run 時初始化）
         self._lock     = threading.Lock()
         self._busy     = False    # 防止重複點擊
@@ -81,9 +81,10 @@ class CaPGUI:
             fg=ACCENT_GOLD, bg=BG_DARK
         ).pack(side="left")
 
+        model_str = "Gemini 2.5 Flash" if getattr(self, "use_gemini", False) else "GPT-4o"
         tk.Label(
             header,
-            text="Code as Policies  ·  GPT-4o  ·  PyBullet",
+            text=f"Code as Policies  ·  {model_str}  ·  PyBullet",
             font=FONT_STATUS, fg=TEXT_DIM, bg=BG_DARK
         ).pack(side="left", padx=12, pady=4)
 
@@ -201,7 +202,8 @@ class CaPGUI:
 
         self._set_busy(True)
         self._clear_panels()
-        self._set_status("🔄 Stage 1: Planning with GPT-4o...", ACCENT_BLUE)
+        model_name = "Gemini" if getattr(self, "use_gemini", False) else "GPT-4o"
+        self._set_status(f"🔄 Stage 1: Planning with {model_name}...", ACCENT_BLUE)
 
         thread = threading.Thread(
             target=self._pipeline,
@@ -318,8 +320,10 @@ class CaPGUI:
 # ──────────────────────────────────────────
 
 def main():
+    import sys
+    use_gemini = "-gemini" in sys.argv or "--gemini" in sys.argv
     root = tk.Tk()
-    app = CaPGUI(root)
+    app = CaPGUI(root, use_gemini=use_gemini)
     root.protocol("WM_DELETE_WINDOW", app.on_close)
     root.mainloop()
 

@@ -5,7 +5,8 @@
 
 import json
 from openai import OpenAI
-from config import OPENAI_API_KEY, MODEL
+import config
+from config import OPENAI_API_KEY, GOOGLE_API_KEY, OPENAI_MODEL, GEMINI_MODEL
 from few_shots.planning_examples import get_planning_prompt_block
 
 # 場景描述（提供給 LLM 的背景知識）
@@ -54,8 +55,17 @@ class TaskPlanner:
     使用 GPT-4o + CoT + few-shot 將自然語言指令轉換為 Steps JSON。
     """
 
-    def __init__(self):
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+    def __init__(self, use_gemini: bool = False):
+        self.use_gemini = use_gemini
+        if use_gemini:
+            self.client = OpenAI(
+                api_key=GOOGLE_API_KEY,
+                base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+            )
+            self.model_name = GEMINI_MODEL
+        else:
+            self.client = OpenAI(api_key=OPENAI_API_KEY)
+            self.model_name = OPENAI_MODEL
 
     def plan(self, instruction: str) -> dict:
         """
@@ -86,7 +96,7 @@ Think step by step to identify the emotion and the steps, then output the Steps 
 """.strip()
 
         response = self.client.chat.completions.create(
-            model=MODEL,
+            model=self.model_name,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user",   "content": user_prompt}

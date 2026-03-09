@@ -5,7 +5,7 @@
 
 import json
 from openai import OpenAI
-from config import OPENAI_API_KEY, MODEL
+from config import OPENAI_API_KEY, GOOGLE_API_KEY, OPENAI_MODEL, GEMINI_MODEL
 from few_shots.coding_examples import get_coding_prompt_block
 
 # primitives API 說明（提供給 LLM 的 context）
@@ -53,8 +53,17 @@ class CodeGenerator:
     使用 GPT-4o + few-shot 將 Steps JSON 轉換為可執行的 Python Code。
     """
 
-    def __init__(self):
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+    def __init__(self, use_gemini: bool = False):
+        self.use_gemini = use_gemini
+        if use_gemini:
+            self.client = OpenAI(
+                api_key=GOOGLE_API_KEY,
+                base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+            )
+            self.model_name = GEMINI_MODEL
+        else:
+            self.client = OpenAI(api_key=OPENAI_API_KEY)
+            self.model_name = OPENAI_MODEL
 
     def generate(self, steps_dict: dict, emotion: str) -> str:
         """
@@ -87,7 +96,7 @@ Generate ONLY the def execute(env): function. No imports, no extra text.
 """.strip()
 
         response = self.client.chat.completions.create(
-            model=MODEL,
+            model=self.model_name,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user",   "content": user_prompt}

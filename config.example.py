@@ -1,9 +1,11 @@
 # 系統設定檔：OpenAI API Key、模型名稱、情緒參數
 
 OPENAI_API_KEY = "請在這裡填入你的_OPEN_AI_API_KEY"
+GOOGLE_API_KEY = "請在這裡填入你的_GOOGLE_API_KEY"
 
-# 使用的 OpenAI 模型
-MODEL = "gpt-4o"
+# 使用的模型
+OPENAI_MODEL = "gpt-4o"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 # PyBullet 場景參數
 SCENE_CONFIG = {
