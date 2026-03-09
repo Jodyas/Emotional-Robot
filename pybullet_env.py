@@ -7,6 +7,8 @@ import time
 import math
 import random
 import threading
+import os
+import shutil
 
 from config import SCENE_CONFIG
 from primitives import RobotPrimitives
@@ -41,7 +43,19 @@ class PyBulletEnv:
 
         # 連線 PyBullet GUI
         self.physics_client = p.connect(p.GUI)
-        p.setAdditionalSearchPath(pybullet_data.getDataPath())
+        
+        # 處理中文路徑導致 loadURDF 失敗的 Bug
+        data_path = pybullet_data.getDataPath()
+        if not data_path.isascii():
+            temp_dir = r"C:\temp\pybullet_data_temp"
+            if not os.path.exists(temp_dir):
+                os.makedirs(r"C:\temp", exist_ok=True)
+                print(f"[PyBulletEnv] Copying pybullet_data to {temp_dir} to bypass non-ASCII path issue...")
+                shutil.copytree(data_path, temp_dir)
+            data_path = temp_dir
+            print(f"[PyBulletEnv] Using temporary ASCII data path: {data_path}")
+            
+        p.setAdditionalSearchPath(data_path)
         p.setGravity(0, 0, cfg["gravity"])
 
         # 攝影機設定
