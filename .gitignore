@@ -1,0 +1,21 @@
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore Gemini artifact tracking directories if they exist here
+.gemini/
+.antigravity/
+config.py
