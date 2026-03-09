@@ -7,6 +7,7 @@
 import pybullet as p
 import time
 import math
+import random
 
 
 class RobotPrimitives:
@@ -37,6 +38,49 @@ class RobotPrimitives:
         for _ in range(steps):
             joint_poses = p.calculateInverseKinematics(
                 self.robot_id, self.ee_link, [x, y, z], target_orn,
+                maxNumIterations=200
+            )
+            for i, j in enumerate(self.arm_joints):
+                p.setJointMotorControl2(
+                    self.robot_id, j, p.POSITION_CONTROL,
+                    targetPosition=joint_poses[i], force=force
+                )
+            p.stepSimulation()
+            time.sleep(1.0 / 240.0)
+
+    def move_to(self, target, steps: int = 200, force: float = 200, noise_amp: float = 0.0, noise_freq: float = 0.0, tilt: list = None):
+        """
+        Animator API: Move the end-effector to a target with optional noise and orientation tilt.
+        target: object name (e.g. "cup") or absolute coordinates [x, y, z].
+        tilt: [roll_offset, pitch_offset, yaw_offset] in radians, added to the
+              base orientation [pi, 0, 0] (pointing down). Use this to give the
+              robot "personality" — like tilting its head curiously or drooping sadly.
+              Example: tilt=[0, 0.3, 0] = curious side-tilt, tilt=[0.2, 0, 0] = drooping.
+        """
+        if isinstance(target, str):
+            x, y, z = self.get_object_position(target)
+            if target == "cup":
+                z += 0.20  # Default hover above the cup
+        else:
+            x, y, z = target
+
+        # Base orientation: pointing straight down
+        base_euler = [math.pi, 0, 0]
+        if tilt is not None:
+            base_euler = [base_euler[0] + tilt[0], base_euler[1] + tilt[1], base_euler[2] + tilt[2]]
+        target_orn = p.getQuaternionFromEuler(base_euler)
+        
+        for k in range(steps):
+            # Add noise jitter
+            t = k / max(1, steps)
+            nx = (random.uniform(-1, 1) if noise_freq > 1.0 else math.sin(t * noise_freq * 10)) * noise_amp
+            ny = (random.uniform(-1, 1) if noise_freq > 1.0 else math.cos(t * noise_freq * 13)) * noise_amp
+            nz = (random.uniform(-1, 1) if noise_freq > 1.0 else math.sin(t * noise_freq * 17)) * noise_amp
+
+            noisy_target = [x + nx, y + ny, z + nz]
+
+            joint_poses = p.calculateInverseKinematics(
+                self.robot_id, self.ee_link, noisy_target, target_orn,
                 maxNumIterations=200
             )
             for i, j in enumerate(self.arm_joints):

@@ -10,41 +10,59 @@ from few_shots.coding_examples import get_coding_prompt_block
 
 # primitives API 說明（提供給 LLM 的 context）
 PRIMITIVES_API_DOC = """
-You are a Python code generator for a robot arm simulation.
+You are a Python code generator mapping keyframe JSON steps to robot API movements.
 
-The robot is controlled via an `env` object (RobotPrimitives instance).
-You MUST ONLY use the following methods. Do NOT import anything. Do NOT use any other functions.
+The robot is controlled via an `env` object.
+You MUST ONLY use the following methods. Do NOT import anything. Do NOT use any other functions or fake methods like `express_emotion`.
 
 Available API:
   env.get_object_position(name: str) -> list[float]
       Returns [x, y, z] world coordinates of an object. Supported name: "cup".
 
-  env.move_arm(x: float, y: float, z: float, steps: int = 200, force: float = 200)
-      Moves the robot arm end-effector to (x, y, z).
-      `steps` determines the speed and smoothness. Fewer steps (e.g., 40-50) mean fast, abrupt, and jerky movement. More steps (e.g., 200-250) mean slow, smooth movement.
-      `force` determines the physical force applied to the joints. High force (e.g., 500-600) is good for aggressive or forceful actions.
+  env.move_to(target: str | list[float], steps: int = 200, force: float = 200, noise_amp: float = 0.0, noise_freq: float = 0.0, tilt: list = None)
+      Moves the robot arm end-effector to the target.
+      `target` can be the string "cup" (it will automatically offset to hover above the cup) OR an absolute [x, y, z] coordinate list.
+      `steps` determines the speed and smoothness. Less steps (e.g. 30-50) is fast/jerky. More steps (e.g. 200) is slow/smooth.
+      `force` determines motor force. High force (e.g. 500-600) is aggressive.
+      `noise_amp` and `noise_freq` control physical jitter/shaking. 
+         - To tremble gently (like hesitation/caution), use noise_amp=0.01, noise_freq=0.5
+         - To violently shake (angry/pain), use noise_amp=0.08, noise_freq=2.0
+         - Default is 0.0 for smooth motion.
+      `tilt` is a list [roll_offset, pitch_offset, yaw_offset] in radians, controlling the end-effector orientation.
+         The base orientation points straight down. Tilt offsets rotate from there.
+         Use tilt to give the robot "personality" like a character's head:
+         - Curious side-tilt: tilt=[0, 0.3, 0]
+         - Sad/drooping: tilt=[0.2, 0, 0]
+         - Proud/looking up: tilt=[-0.2, 0, 0]
+         - Angry sideways jerk: alternate tilt=[0, 0.4, 0] and tilt=[0, -0.4, 0]
+         Default is None (straight down).
 
   env.activate_suction()
-      Attaches the cup to the arm using a virtual suction constraint.
+      Attaches the cup to the arm.
 
   env.deactivate_suction()
-      Releases the cup from the arm.
+      Releases the cup from the arm, letting it fall.
 
   env.wait(steps: int = 50)
       Waits for the given number of simulation steps.
 
+Animation & Physics Principles:
+- Apply 'Show, Don't Tell' by converting physical properties into motion parameters.
+- Heavy Objects: Require high `force=800`, very high `steps=500+` (slow movement), and a low-frequency heavy jitter `noise_amp=0.02, noise_freq=0.3`.
+- Fragile/Careful: Require smooth slow movement `steps=300`, no noise `noise_amp=0.0`.
+- Anticipation: Before moving, add a small reverse/away movement or a hovering `wait()` with tiny trembles.
+- Follow Through: After dropping/picking, ALWAYS add a lingering movement (e.g., dropping hand heavily, or excitedly shaking).
+- **Timing & Pacing**: Use `env.wait()` to insert dramatic beats between motions. Short beat: `steps=30-50`. Long dramatic pause: `steps=150-250`. NEVER skip pauses — the silences between actions are what make the animation feel alive.
+
 Rules:
 - Generate ONLY the body of def execute(env): — nothing else.
 - Use only the API methods listed above.
-- Add a brief comment before each step.
-- The output must be valid Python code starting with: def execute(env):
-- To express emotions, you MUST NOT call 'express_emotion', rather you sequence a series of `env.move_arm` instructions adjusting `steps` and `force` to physically match the target emotion. 
-- For example:
-  - 'happy' -> waving motion, fluid (steps=250)
-  - 'angry' -> smashing down/up forcefully (steps=40, force=600)
-  - 'lazy' -> moving very slowly, dragging the cup (steps=500, force=100)
-  - 'cautious' / 'careful' -> small precise movements, pausing frequently
-  - YOU must invent the physical choreography for ANY emotion passed in.
+- Add a brief comment before each step based on the description.
+- To express emotions, you translate the step into `move_to` or `wait` commands with appropriate `steps`, `force`, `noise_amp`, and `noise_freq`.
+  - 'happy' -> bouncing/waving motion, targeting coordinates above the table, fluid (steps=200).
+  - 'angry/hot' -> smashing down forcefully (fast steps=30, high force), followed by chaotic `move_to` in the air with `noise_amp=0.1, noise_freq=2.0`.
+  - 'cautious' -> very slow `move_to` (steps=400) with slight trembles (`noise_amp=0.005`).
+- YOU MUST NOT CAUSE ERRORS by calling non-existent methods. All physical expressions of emotion described in the JSON must be "choreographed" using a loop or sequence of `move_to` to specific explicit coordinates [x, y, z].
 """
 
 
