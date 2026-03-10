@@ -142,10 +142,17 @@ class PyBulletEnv:
             rgbaColor=cfg["cup_color"]
         )
         cup_id = p.createMultiBody(
-            baseMass=0.1,
+            baseMass=cfg.get("cup_mass", 0.5),
             baseCollisionShapeIndex=col_id,
             baseVisualShapeIndex=vis_id,
             basePosition=[rand_x, rand_y, cup_z]
+        )
+        p.changeDynamics(
+            cup_id,
+            -1,
+            lateralFriction=cfg.get("cup_friction", 1.0),
+            spinningFriction=0.1,
+            rollingFriction=0.1
         )
         return cup_id
 
