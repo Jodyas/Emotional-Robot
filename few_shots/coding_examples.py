@@ -28,12 +28,12 @@ def execute(env):
     # Step 4: Gently lift the cup
     env.move_to([cup_pos[0], cup_pos[1], cup_pos[2] + 0.05], steps=200, force=100)
     env.activate_suction()
-    env.wait(50)
+    env.wait(30)
     env.move_to([cup_pos[0], cup_pos[1], cup_pos[2] + 0.35], steps=300, force=100)
 
     # Step 5: Bring it closer and hold still, head level (relieved)
     env.move_to([cup_pos[0] - 0.15, cup_pos[1], cup_pos[2] + 0.35], steps=200, force=100, tilt=[0, 0, 0])
-    env.wait(100)
+    env.wait(70)
 '''
     },
     {
@@ -57,16 +57,16 @@ def execute(env):
     # Step 3: Slam down, grab, and yank upwards
     env.move_to([cup_pos[0], cup_pos[1], cup_pos[2] + 0.05], steps=30, force=700)
     env.activate_suction()
-    env.wait(10)
+    env.wait(6)
     env.move_to([cup_pos[0], cup_pos[1], cup_pos[2] + 0.40], steps=50, force=600)
 
     # Step 4: Realize it's hot, rush to drop off corner — head jerks away in disgust
-    env.wait(30)  # Timing: freeze — moment of realization
+    env.wait(20)  # Timing: freeze — moment of realization
     env.move_to([cup_pos[0] + 0.2, cup_pos[1] + 0.3, cup_pos[2] + 0.30], steps=60, force=600, noise_amp=0.03, noise_freq=1.5, tilt=[-0.3, 0.4, 0])
 
     # Step 5: Drop it!
     env.deactivate_suction()
-    env.wait(10)  # Timing: moment of shock after dropping
+    env.wait(6)  # Timing: moment of shock after dropping
 
     # Step 6: Violently shake hand in pain — alternate LEFT/RIGHT with head flailing!
     for _ in range(4):

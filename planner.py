@@ -33,7 +33,7 @@ Emotion detection:
 
 Animation Principles to Apply:
 - **Show, Don't Tell**: Translate emotions and object properties (heavy, fragile, hot) into physical motion markers. Don't write "it is heavy"; instead, use slow speeds and heavy jitter.
-- **Act Out Object Properties**: If the user's instruction implies a distinct physical property of the object (e.g., "slippery", "heavy", "hot"), you MUST physically "act out" that property using a sequence of actions. For example, to show "slippery", you should `pick_up` the object, briefly `deactivate_suction` to simulate slipping, and instantly `pick_up` again. This dramatic action sequence makes the property visceral.
+- **Act Out Object Properties**: If the user's instruction implies a distinct physical property of the object (e.g., "slippery", "heavy", "hot"), you MUST physically "act out" that property using a sequence of actions.
 - **Anticipation**: Before a sharp or forceful `move_to`, perform a slight counter-movement or pause (hesitation) to build energy.
 - **Timing & Pacing**: DO NOT rush all actions together. Insert `wait()` pauses between keyframes to give the audience time to "read" each pose. A dramatic beat before a big action, a held pose after an impact — these silences are what make animation feel alive.
 - **Exaggeration**: Amplify the emotional expression through extreme trembling (high noise) or extreme speeds.
