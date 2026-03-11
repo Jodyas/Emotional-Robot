@@ -156,6 +156,44 @@ class PyBulletEnv:
         )
         return cup_id
 
+    def reset_scene(self):
+        """
+        重置場景狀態（不重新連線）：
+        1. 手臂歸位
+        2. 杯子重新隨機擺放並重設速度
+        3. 釋放吸盤
+        4. stepSimulation() 讓物理穩定
+        """
+        # 1. 手臂歸位
+        rest_poses = [0, 0, 0, -math.pi / 2, 0, math.pi / 4, 0]
+        for i, j in enumerate(self.arm_joints):
+            p.resetJointState(self.robot_id, j, rest_poses[i])
+
+        # 2. 杯子重新隨機擺放
+        cfg = SCENE_CONFIG
+        table_top_z = cfg["table_position"][2] + cfg["table_half_extents"][2]
+        cup_z = table_top_z + cfg["cup_height"] / 2.0
+        rand_x = random.uniform(*cfg["cup_random_x_range"])
+        rand_y = random.uniform(*cfg["cup_random_y_range"])
+        
+        p.resetBasePositionAndOrientation(
+            self.cup_id,
+            [rand_x, rand_y, cup_z],
+            [0, 0, 0, 1]  # 預設四元數
+        )
+        p.resetBaseVelocity(self.cup_id, [0, 0, 0], [0, 0, 0])
+
+        # 3. 釋放吸盤 (如果有吸附)
+        if hasattr(self, 'env') and self.env:
+            self.env.deactivate_suction()
+            
+        # 4. 清除 debug items
+        p.removeAllUserDebugItems()
+
+        # 5. 穩定物理引擎
+        for _ in range(100):
+            p.stepSimulation()
+
     # ------------------------------------------------------------------
     # Emotion Debug Text（顯示在 PyBullet 視窗中）
     # ------------------------------------------------------------------

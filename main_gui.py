@@ -128,6 +128,16 @@ class CaPGUI:
         )
         self.run_btn.grid(row=0, column=4, sticky="e")
 
+        # Replay button
+        self.replay_btn = tk.Button(
+            frame, text="🔁  Replay", font=FONT_BTN,
+            bg=ACCENT_GOLD, fg=BG_DARK, activebackground="#f0c674",
+            activeforeground=BG_DARK, relief="flat", bd=0,
+            padx=12, pady=6, cursor="hand2",
+            command=self._on_replay
+        )
+        self.replay_btn.grid(row=0, column=5, sticky="e", padx=(8, 0))
+
         # Reset button
         self.reset_btn = tk.Button(
             frame, text="⟳  Reset Sim", font=FONT_BTN,
@@ -135,7 +145,7 @@ class CaPGUI:
             relief="flat", bd=0, padx=12, pady=6, cursor="hand2",
             command=self._on_reset
         )
-        self.reset_btn.grid(row=0, column=5, sticky="e", padx=(8, 0))
+        self.reset_btn.grid(row=0, column=6, sticky="e", padx=(8, 0))
 
         frame.columnconfigure(1, weight=1)  # Entry 欄位可延伸
 
@@ -215,6 +225,34 @@ class CaPGUI:
         )
         thread.start()
 
+    def _on_replay(self):
+        """Replay 按鈕點擊：重新執行目前右側的 Python 程式碼"""
+        if self._busy:
+            return
+
+        code_str = self.code_text.get("1.0", tk.END).strip()
+        if not code_str:
+            messagebox.showwarning("No Code", "No generated code available to replay.")
+            return
+
+        # 這裡嘗試從 JSON 框推敲 emotion（因為 Replay 是沒有跑 Stage 1 的）
+        try:
+            plan_json = self.plan_text.get("1.0", tk.END).strip()
+            plan_dict = json.loads(plan_json)
+            inferred_emotion = plan_dict.get("emotion", "neutral").lower()
+        except:
+            inferred_emotion = "neutral"
+
+        self._set_busy(True)
+        self._set_status("🔄 Replaying code...", ACCENT_BLUE)
+
+        thread = threading.Thread(
+            target=self._execute_code,
+            args=(code_str, inferred_emotion),
+            daemon=True
+        )
+        thread.start()
+
     def _on_reset(self):
         """重置模擬環境"""
         if self._busy:
@@ -263,11 +301,24 @@ class CaPGUI:
                 print(f"Failed to dump results: {e}")
 
             # ── Stage 3: PyBullet Execution ───────────
+            self._execute_code(code_str, inferred_emotion)
+
+        except Exception as e:
+            self._set_status(f"❌ Error: {e}", ACCENT_RED)
+
+        finally:
+            self.root.after(0, self._set_busy, False)
+
+    def _execute_code(self, code_str: str, inferred_emotion: str):
+        """將程式碼實際送到 PyBullet 中執行的共用邏輯"""
+        try:
             with self._lock:
                 if self.sim_env is None:
                     self.sim_env = PyBulletEnv()
                     self.sim_env.setup()
                     self.sim_env.start_idle()
+                else:
+                    self.sim_env.reset_scene()
 
             self._set_status("🤖 Executing in PyBullet...", ACCENT_GOLD)
             self.sim_env.run_code(
@@ -281,7 +332,6 @@ class CaPGUI:
 
         except Exception as e:
             self._set_status(f"❌ Error: {e}", ACCENT_RED)
-
         finally:
             self.root.after(0, self._set_busy, False)
 
@@ -322,6 +372,9 @@ class CaPGUI:
         self._busy = busy
         state = "disabled" if busy else "normal"
         self.run_btn.config(state=state)
+        # 假設在 __init__ 時也可能有尚未建立 UI 的狀況，可加上 getattr 安全判斷
+        if hasattr(self, 'replay_btn'):
+            self.replay_btn.config(state=state)
 
     def on_close(self):
         """視窗關閉時斷開 PyBullet"""
