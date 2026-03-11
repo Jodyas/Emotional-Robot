@@ -1,0 +1,69 @@
+{
+  "reasoning": "The user explicitly requested 'curious' emotion and mentioned a 'hot cup'. I will combine these. [Emotion Detection]: The primary emotion is 'curious'. [Act Out Object Properties]: The 'hot' property will be shown by a quick recoil and drop after picking up. [Anticipation]: The arm will slowly lean in and hover before approaching, showing initial curiosity. [Show, Don't Tell]: Curiosity will be shown through slow, deliberate movements, a 'head tilt' (suction cup tilt), and tentative approaches. The 'hot' property will be shown by a sudden jerk back and a quick drop. [Timing & Pacing]: I will insert `wait()` steps for observation, the moment of realizing it's hot, and after dropping. [Exaggeration]: The recoil and drop will be exaggerated. [Appeal]: The suction cup will tilt curiously, then jerk away in surprise/pain. [Follow Through]: After dropping, the arm will shake rapidly as if trying to cool off.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table. The suction cup tilts slightly, as if observing with interest."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Slowly lean the arm forward, then pull back slightly, as if pondering or gathering courage to approach. The suction cup 'looks' at the cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic beat, observing the cup with a curious tilt."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm slowly and tentatively towards the cup, hovering just above it, as if inspecting it closely without touching. A slight 'poke' motion without contact."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause above the cup, 'sniffing' or examining it with a slight side-to-side wobble of the suction cup."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm slowly, activate suction, and lift the cup gently. Immediately, a slight, sharp recoil as if surprised by the heat."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! The moment of realization – 'Oh, it's hot!' The arm holds the cup still for a split second, then begins to tremble slightly."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop"
+      },
+      "description": "Exaggeration: Jerk the arm quickly to the side, away from the table, as if trying to get rid of the hot object."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Drop the cup suddenly and quickly due to the heat."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Moment of shock and surprise after dropping. Hold still, slightly recoiled."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Rapidly shake the arm up and down, as if trying to cool off the 'burned' suction cup, perhaps 'blowing' on it with quick, short movements."
+    }
+  ]
+}

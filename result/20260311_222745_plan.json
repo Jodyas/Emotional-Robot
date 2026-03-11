@@ -1,0 +1,59 @@
+{
+  "reasoning": "The user explicitly asks to 'look at the cup curiously' and then 'pick up the slippery cup, slip the cup a bit when picking up'. The primary emotion is 'curious'. The 'slippery' aspect is a physical property of the object that needs to be acted out. I will use a slow, investigative approach with a tilted suction cup to show curiosity (Appeal, Anticipation). For the 'slippery' property, the 'pick_up' action will include a momentary jiggle or slight drop to simulate the slip, followed by re-securing it. I will insert `wait()` steps to emphasize the curious observation and the moment of the slip (Timing & Pacing). The final action will be a cautious hold, demonstrating Follow Through and the successful but delicate handling of the slippery object.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup slightly to the side, slowly approaching the cup with a 'curious' angle, observing it."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still above the cup, letting the audience 'read' the curious observation."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm slowly and deliberately above the cup, maintaining the curious tilt, as if examining it before the grab."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause briefly, hovering, before attempting to pick up the potentially 'slippery' object."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, lift slightly, then a sudden downward jiggle with a slight noise as if the cup is slipping, quickly re-securing it and lifting it up carefully. (Acting out 'slippery')."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup still after the slip, recovering and ensuring it's securely held, acknowledging the tricky grab."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "above_table_center"
+      },
+      "description": "Slowly and cautiously lift the cup higher and move it to a safe, central position, maintaining a slight tremor to show it's still perceived as slippery. (Follow Through)."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Hold the cup gently, perhaps with a slight, satisfied nod of the suction cup, having successfully handled the slippery object."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' and to 'act out it's heavy'.\n\n1.  **Emotion Detection**: 'happy' is the primary emotion.\n2.  **Show, Don't Tell (Heavy)**: To convey 'heavy', I will use very slow movement speeds, significant trembling/jitter during the lift, and a strained posture after lifting. I'll add an 'anticipation' step where the arm braces itself.\n3.  **Show, Don't Tell (Happy)**: To convey 'happy', I'll start with a cheerful 'express_emotion' (a little jig), and the initial approach to the cup will be light and bouncy.\n4.  **Anticipation**: A happy jig before starting. A slight 'brace' or 'preparation' movement before the heavy lift.\n5.  **Timing & Pacing**: Insert `wait()` steps to create dramatic beats: after the happy jig, before the heavy lift, and a longer pause after successfully lifting the heavy object to show both strain and satisfaction.\n6.  **Exaggeration**: Amplify the slowness and trembling for the 'heavy' aspect, and the cheerfulness for 'happy'.\n7.  **Appeal**: The suction cup will tilt happily, then look determined/strained, then proud.\n8.  **Follow Through**: After successfully lifting the heavy cup, the arm will hold it proudly with a slight sway, concluding with a final happy and satisfied gesture.",
+  "emotion": "happy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a cheerful little jig, waving the arm slightly with a happy tilt of the suction cup, showing excitement to start."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the happy pose for a moment, letting the cheerfulness sink in."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "medium",
+        "noise": "low"
+      },
+      "description": "Move the arm with a light, slightly bouncy motion towards the cup, maintaining a happy demeanor."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "offset": {
+          "z": 0.1
+        },
+        "speed": "slow",
+        "noise": "medium"
+      },
+      "description": "Anticipation: Hover directly above the cup, dipping slightly as if bracing for a heavy lift. The suction cup tilts down, looking determined."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A dramatic pause, building tension before the strenuous effort of lifting the heavy cup."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "very_slow",
+        "noise": "high"
+      },
+      "description": "Lower the arm slowly, activate suction, then lift the cup *very slowly* with significant trembling and jitter, showing extreme effort and strain. The suction cup strains upwards."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A longer pause after lifting, holding the heavy cup. First, show the strain, then a moment of satisfaction for successfully holding it."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Hold the heavy cup proudly, performing a gentle, satisfied bob or sway. The suction cup looks up with a proud, happy tilt, celebrating the successful heavy lift."
+    }
+  ]
+}

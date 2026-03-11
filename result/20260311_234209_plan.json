@@ -1,0 +1,83 @@
+{
+  "reasoning": "The user explicitly states 'anger' and describes the cup as 'heavy', leading to a 'drop the arm' action due to its weight. This implies a struggle and frustration. Therefore, the emotion is 'angry_frustrated'.\n\n[Show, Don't Tell]: To convey 'heavy', the first pick-up attempt will fail, with the arm dropping. The second successful pick-up will be slow and deliberate, with visible strain (jitter).\n[Show, Don't Tell]: To convey 'anger/frustration', movements will be aggressive, fast, and include violent shaking after the failed attempt.\n[Anticipation]: A tense, aggressive jerk before the first move to the cup. A determined pause before the second pick-up.\n[Timing & Pacing]: Strategic `wait()` pauses are crucial: after detecting the object (tense build-up), after the failed pick-up (moment of frustration), after the frustration expression, and after successfully lifting the heavy cup (showing the effort).\n[Exaggeration]: The arm drop will be sudden and forceful. The frustration expression will be violent shaking.\n[Appeal]: The suction cup will tilt aggressively or droop in frustration.\n[Follow Through]: The sequence must end with the arm holding the heavy cup with visible strain and a lingering angry/determined posture, slowly pulling it closer.",
+  "emotion": "angry_frustrated",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with an aggressive, focused tilt of the suction cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Hold perfectly still — a tense, dramatic pause before the first attempt."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: A sharp, aggressive jerk of the arm, showing impatience and anger before moving."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Rush the arm directly above the cup quickly and forcefully, with a slight aggressive jitter."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Slam the arm down, activate suction, attempt to lift the cup. Struggle visibly, lifting it only slightly with heavy jitter."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "down"
+      },
+      "description": "Exaggeration: The arm suddenly drops downwards with a heavy thud, unable to sustain the lift due to the cup's weight. Deactivate suction implicitly as it drops."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! A moment of shock and intense frustration after the arm drops."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Exaggeration: Violently shake the arm back and forth, jerking it erratically in a fit of anger and frustration. The suction cup droops sadly then snaps up aggressively."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause to let the frustration settle, then a determined, angry resolve."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm back above the cup with a determined, slightly aggressive, and slower motion, showing renewed effort."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm slowly and deliberately, activate suction, then lift the cup with visible strain and heavy, sustained jitter, showing it's very heavy."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the heavy cup aloft, showing the effort and the successful but strained lift."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Slowly pull the cup closer to the robot's body, holding it with sustained, heavy jitter and a determined, slightly aggressive posture, still showing the weight and lingering anger."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly requested to 'pick up the hot cup with anger'. This clearly indicates an 'angry_hot' emotion. I need to combine aggressive, forceful movements for 'anger' with a quick drop and recoil for 'hot'.\n\n[Anticipation]: Before approaching, the arm will tense and jerk aggressively to show building anger.\n[Show, Don't Tell]: Anger will be shown through fast, forceful, and jerky movements. The 'hot' property will be shown by a sudden drop and a subsequent 'pain' reaction.\n[Timing & Pacing]: I will insert `wait()` steps to create dramatic beats: a tense pause before the angry grab, a brief freeze after grabbing (the 'hot' realization), and a moment of shock after dropping.\n[Exaggeration]: Amplify the angry movements and the 'pain' reaction with violent shaking.\n[Appeal]: The suction cup will tilt aggressively during the angry approach and recoil sharply after dropping.\n[Follow Through]: The sequence MUST end with a final `express_emotion` that combines the lingering anger and the 'pain' from the heat.",
+  "emotion": "angry_hot",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Jerk the arm aggressively and quickly, showing building anger and impatience. The suction cup tilts sharply."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still for a dramatic beat, letting the anger simmer before the action."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Rush the arm directly above the cup with a fast, forceful, and slightly jerky motion, expressing aggression."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Slam the arm down quickly, activate suction with a jolt, and thrust the cup up abruptly. The suction cup recoils slightly as if burned."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! A brief, tense pause as the robot 'realizes' the cup is burning hot. The arm tenses up."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop"
+      },
+      "description": "Exaggeration: Jerk the arm violently to the side, flinging the 'hot' cup away from the table in panic and anger."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Release the cup immediately and abruptly, as if it's too hot to hold."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A moment of shock and lingering anger after dropping the cup. Hold still."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Violently shake the arm back and forth, then wave it angrily in the air, expressing both the pain from the 'burn' and the lingering frustration/anger."
+    }
+  ]
+}

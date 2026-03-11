@@ -1,0 +1,52 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with anger' and to 'drop the arm a bit when picking up as it's heavy'. This indicates an 'angry' emotion combined with the physical property of 'heavy'.\n\n1.  **Emotion Detection**: 'angry_heavy'.\n2.  **Anticipation**: Before moving, the arm will express anger with a sharp, aggressive jerk.\n3.  **Show, Don't Tell (Anger)**: The `move_to` will be fast and forceful. The `pick_up` will be aggressive.\n4.  **Show, Don't Tell (Heavy)**: The `pick_up` action will include a description of dropping the arm slightly past the cup, then a slow, strained, and jittery lift. After lifting, there will be a pause to show the strain of the weight.\n5.  **Timing & Pacing**: Insert `wait()` steps to create dramatic beats: a tense pause before grabbing, a strained pause after lifting.\n6.  **Exaggeration**: Amplify the jitter and slowness during the 'heavy' lift.\n7.  **Follow Through**: The sequence will end with an `express_emotion` that combines the lingering anger and the burden of the cup's weight, perhaps with a frustrated tilt and continuous tremble.",
+  "emotion": "angry_heavy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Jerk the arm sharply and aggressively, showing impatience and anger before moving."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a brief, tense moment, letting the anger build."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Rush the arm quickly and forcefully above the cup, almost slamming into position with an angry tilt."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold rigidly still above the cup, a tense pause before the effort of grabbing the heavy object."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Slam the arm down slightly past the cup (as if bracing for weight), then activate suction and lift slowly with visible strain and heavy jitter, struggling with the perceived weight. The suction cup droops slightly with effort."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup aloft, trembling slightly from the effort and weight. A moment of strained triumph mixed with frustration."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Pull the heavy cup closer with a frustrated, aggressive tilt of the suction cup, holding it with a continuous, low-frequency tremble, showing lingering anger and the burden of its weight."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "reasoning": "The user explicitly requested to pick up the 'hot cup with fear'. This clearly indicates the 'fear' emotion. The 'hot' property of the cup must also be acted out. I will use hesitation, trembling, and quick recoiling movements to convey fear and the sensation of heat. [Anticipation]: The arm will flinch and tremble before approaching. [Show, Don't Tell]: Slow, jerky movements with high noise will show fear and reluctance. A quick grab followed by an immediate recoil and drop will convey the 'hot' aspect. [Timing & Pacing]: I will insert `wait()` steps to create dramatic pauses for hesitation, the moment of 'touching' the hot cup, and the shock after dropping it. [Exaggeration]: Trembling and recoil will be amplified. [Appeal]: The suction cup will tilt away or droop to show reluctance and fear. [Follow Through]: After dropping, the arm will recoil further and shake violently to conclude the fearful experience.",
+  "emotion": "fear",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm flinches back slightly and begins to tremble, showing initial fear and reluctance to approach."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic beat, letting the fear build before moving."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "noise": "high",
+        "speed": "slow"
+      },
+      "description": "Move the arm very slowly and hesitantly towards the cup, trembling noticeably. The suction cup tilts away slightly, as if reluctant."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, trembling intensely, as if gathering courage for the dreaded touch."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Quickly lower, activate suction, and immediately snatch the cup up, then flinch back sharply as if burned and startled."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief, sharp pause. The moment of 'oh no, it's hot!' combined with intense fear."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop",
+        "speed": "fast",
+        "noise": "high"
+      },
+      "description": "Exaggeration: Jerk the arm violently away from the cup's original position, still holding it, but trying to distance it in panic."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Drop the cup quickly and abruptly, almost throwing it away in fear and pain."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A moment of shock and relief after dropping the 'hot' and 'scary' cup. Hold still."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Recoil the arm further, shaking violently and rapidly, as if still scared and trying to shake off the lingering sensation of heat or the fear. The suction cup droops and hides."
+    }
+  ]
+}

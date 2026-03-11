@@ -1,0 +1,83 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with anger' and to 'slip the cup a bit when picking up'.\n\nEmotion: 'angry'. This will be conveyed through fast, forceful, and jerky movements, high noise/jitter, and aggressive suction cup tilts.\n\nObject Property: 'slippery'. This will be 'acted out' by having the initial `pick_up` attempt fail (the cup slips and is dropped), followed by a second, more determined `pick_up`.\n\nAnimation Principles:\n- Anticipation: A violent jerk before the first move to show building anger.\n- Show, Don't Tell: Fast, forceful `move_to` actions with high noise. The slip is shown by a failed `pick_up` and immediate `deactivate_suction`.\n- Timing & Pacing: Short, sharp `wait()` pauses to emphasize frustration and the moment of the slip.\n- Exaggeration: Over-the-top movements and aggressive tremors.\n- Appeal: The suction cup will tilt aggressively to convey anger.\n- Follow Through: The sequence will end with an angry tremor while holding the cup, showing lingering frustration.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table.",
+      "tilt": "neutral"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Arm jerks violently and rapidly, suction cup tilts aggressively to the side, showing impatience and building anger.",
+      "tilt": "aggressive_side"
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "fast",
+        "noise": "high"
+      },
+      "description": "Angry approach: Arm rushes forcefully and directly above the cup with high noise and jitter, almost slamming into position.",
+      "tilt": "aggressive_forward"
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "fast"
+      },
+      "description": "First attempt (the slip): Slam down, activate suction, lift *briefly* and *unsteadily* a few inches, then immediately lose grip as it slips.",
+      "tilt": "frustrated"
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "The cup slips from the suction cup's grasp and drops back onto the table with a thud.",
+      "tilt": "frustrated"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "A sharp, short pause. The arm freezes, hovering angrily over the cup, processing the failure with a slight tremor.",
+      "tilt": "angry_stare"
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "medium",
+        "noise": "medium"
+      },
+      "description": "Reposition: A frustrated, jerky adjustment, moving slightly to hover directly over the cup again, preparing for a second attempt.",
+      "tilt": "angry_stare"
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "very_fast",
+        "noise": "low"
+      },
+      "description": "Second, determined grab: Slam down again with more force, activate suction, lift the cup quickly and firmly, but with a slight, controlled wobble after lifting to acknowledge its slipperiness.",
+      "tilt": "determined"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Hold the cup up, a brief, tense pause to confirm it's finally secure in its grasp.",
+      "tilt": "determined"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Jerk the arm back sharply, pulling the cup close to the robot's body, then hold it with a slight, continuous, angry tremor, showing lingering frustration.",
+      "tilt": "angry_tremor"
+    }
+  ]
+}

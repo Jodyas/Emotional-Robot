@@ -1,0 +1,60 @@
+{
+  "reasoning": "The user explicitly requested to pick up a 'spiky cup with fear' and to 'act out it's spiky'.\nEmotion: 'fear'.\n\n[Show, Don't Tell]: To convey fear, the robot will exhibit hesitant, trembling movements, and recoil actions. To act out 'spiky', it will approach gingerly, maintain distance, and handle the cup as if it might cause harm.\n[Act Out Object Properties]: The 'spiky' nature will be shown by avoiding direct contact, approaching from a distance, and a quick, careful retraction after contact.\n[Anticipation]: Before approaching, the robot will hesitate, flinch, and recoil slightly.\n[Timing & Pacing]: I will use `wait()` steps to create dramatic pauses for hesitation, flinching, and the moment of contact, allowing the audience to 'read' the fear.\n[Exaggeration]: Trembling, flinching, and the speed of retraction will be exaggerated.\n[Appeal]: The suction cup will tilt away, 'looking' at the cup with apprehension.\n[Follow Through]: After picking up, the robot will hold the cup gingerly, still trembling, and keep it at arm's length, maintaining a fearful posture.",
+  "emotion": "fear",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm recoils slightly, then approaches slowly with high noise (trembling). The suction cup tilts away, 'looking' at the cup with apprehension."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A dramatic pause to emphasize the fear and hesitation before committing to the approach."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "noise": "high",
+        "speed": "slow"
+      },
+      "description": "Move the arm very slowly and cautiously towards the cup, with significant trembling, keeping a slight distance. The suction cup is angled as if trying to avoid direct contact."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause above the cup, hovering, as if gathering courage or trying to find a safe, non-spiky spot to grab."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Exaggeration: A quick, sharp flinch or recoil, as if a spike just pricked it, before committing to the grab. The arm jerks back slightly."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "gingerly_down_fast_up"
+      },
+      "description": "Lower the arm very gingerly, activate suction, then immediately lift it quickly but carefully, as if trying to minimize contact time with the 'spikes'."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief pause after lifting, holding the cup at arm's length, still trembling slightly, assessing the 'danger'."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Hold the cup away from its 'body', still trembling with high noise, perhaps even trying to gently rotate it to inspect the 'spikes' from a safe distance, maintaining a fearful posture."
+    }
+  ]
+}

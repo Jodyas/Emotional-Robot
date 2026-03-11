@@ -1,0 +1,80 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with fear' and to 'act out it's spiky'. This clearly indicates the 'fear' emotion. To act out the 'spiky' nature, the robot needs to show extreme caution, hesitation, and flinching movements. I will use anticipation by having the arm recoil and tremble before approaching. The approach itself will be slow, jerky, and include a flinch away from the cup. Timing will be used with wait() steps to emphasize hesitation and the moment of flinching. Exaggeration will be applied to the trembling and flinching. The suction cup will tilt away to show aversion. The follow-through will involve holding the cup at arm's length, still trembling, and moving it away from the robot's 'body' as if still wary of the spikes.",
+  "emotion": "fear",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm recoils slightly, then trembles with high noise, showing initial fear and hesitation."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic pause, letting the audience feel the robot's apprehension."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "slow",
+        "noise": "medium",
+        "tilt": "away"
+      },
+      "description": "Tentative approach: Move slowly and jerkily towards the general area of the cup, with the suction cup tilted away, as if trying to avoid contact."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "away_from_cup",
+        "speed": "fast",
+        "noise": "high"
+      },
+      "description": "Exaggeration: A sudden, quick flinch *away* from the cup, as if it almost touched a spike. Jerk the arm back rapidly."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause to recover from the 'flinch', holding perfectly still in shock."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "very_slow",
+        "noise": "high",
+        "tilt": "away"
+      },
+      "description": "Cautious approach: Very slowly and hesitantly move directly above the cup, with extreme trembling and the suction cup still tilted away, showing extreme reluctance."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still above the cup, gathering courage before descending. A moment of dread."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "slow_down_fast_up"
+      },
+      "description": "Lower very slowly and gingerly, activate suction, then lift the cup quickly and sharply as if relieved to have it off the table."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after lifting, holding the cup gingerly at arm's length."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Hold the cup far away from the robot's 'body', trembling slightly, and quickly move it to the side as if still wary of the spikes. The suction cup droops slightly in relief/fear."
+    }
+  ]
+}

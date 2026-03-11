@@ -1,0 +1,66 @@
+{
+  "reasoning": "The user explicitly asked to 'look at the cup curiously' and then 'pick up the slippery cup, slip the cup a bit when picking up'. The primary emotion is 'curious'. The 'slippery' aspect is a physical property that needs to be 'acted out'.\n\n[Emotion Detection]: 'curious' is directly stated.\n[Show, Don't Tell]: Curiosity will be shown through head tilts, slow approaches, and pauses for observation. Slippery will be shown by a simulated 'slip' during pickup and a slight jitter while holding.\n[Anticipation]: A pause and an 'express_emotion' for curiosity before approaching.\n[Timing & Pacing]: Strategic `wait()` steps are crucial to let the audience 'read' the curiosity, the slip, and the re-securing.\n[Exaggeration]: The slip will be a distinct, quick movement. The curiosity will involve clear tilts and pauses.\n[Appeal]: The suction cup will tilt to show curiosity.\n[Follow Through]: After picking up, the arm will continue to show the slippery nature and lingering curiosity.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup slightly to the side, observing the cup with a curious wobble."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still, letting the audience perceive the robot's curiosity."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Approach the cup slowly and deliberately, hovering slightly above it, as if examining it from different angles."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, observing it intently before attempting to pick it up."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Descend slowly, activate suction, and begin to lift the cup, but with a slight hesitation, as if testing its grip."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "down_and_side"
+      },
+      "description": "Exaggeration: A quick, small, jerky movement downwards and slightly to the side, simulating the cup slipping a bit from the suction cup's grip while still attached."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "up_and_center"
+      },
+      "description": "Immediately re-center the arm and lift the cup with a slight upward jerk, securing the grip more firmly, but still with a subtle, continuous jitter to show it's slippery."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after re-securing, holding the cup with a slight, nervous tremor to emphasize its slippery nature."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Hold the slippery cup with a continuous, subtle jitter, and tilt the suction cup slightly again, as if still curiously assessing the challenging object."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "reasoning": "The user explicitly requested to \"pick up the cup with anger.\" I will translate this into forceful, jerky, and abrupt movements. [Anticipation]: Before moving, I'll show initial frustration with a sharp jerk. [Show, Don't Tell]: Anger is conveyed through fast, direct, and aggressive motions. [Timing]: I'll use sharp pauses to emphasize the abruptness of the angry actions. [Exaggeration]: Amplify the speed and force of the movements. [Follow Through]: After picking up, the arm will not just stop, but perform a final aggressive thrust or shake with the cup.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Jerk the arm sharply and quickly, as if in a burst of frustration or impatience."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still for a brief, tense moment after the initial angry gesture."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Slam the arm down towards the cup with a fast, direct, and slightly jerky motion, showing aggression."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Activate suction with a sudden, forceful movement, then yank the cup upwards quickly and aggressively."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup rigidly in the air for a brief, sharp moment, conveying the force of the grab."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Thrust the cup slightly forward and then pull it back sharply, or give it a small, aggressive shake, as if challenging it or showing dominance."
+    }
+  ]
+}

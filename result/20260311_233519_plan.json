@@ -1,0 +1,59 @@
+{
+  "reasoning": "The user explicitly states 'with fear' and 'slip the cup a bit when picking up'. This clearly indicates a 'fearful' emotion. To show fear, I will use trembling, hesitant movements, and quick, jerky reactions. To simulate the 'slippery' nature and the 'slip', I will describe the pick-up as initially unstable, followed by a quick correction. I will use anticipation by having the arm tremble before approaching, and timing with pauses to emphasize the fear and the moment of the slip. The suction cup will tilt away in apprehension. For follow-through, the arm will hold the cup very carefully, still trembling, after the successful (but scary) pick-up.",
+  "emotion": "fearful",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table, but with the suction cup slightly tilted away, as if apprehensive."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm trembles noticeably, shaking back and forth slightly, showing extreme hesitation and fear before approaching."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic pause, letting the fear build before the next move."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm slowly and hesitantly towards the cup, with continuous, high-frequency trembling. The suction cup remains slightly tilted away."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, still trembling, as if gathering courage for the difficult task."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, and lift the cup. Immediately after lifting, simulate a 'slip': the cup jerks slightly to one side, then quickly re-centers as if barely caught. The arm shows a sudden, sharp tremor during this 'slip'."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze for a moment after the near-slip, showing a beat of panic and relief that it wasn't dropped."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "safe_position"
+      },
+      "description": "Quickly pull the cup closer to the robot's body, holding it very carefully and still trembling slightly, as if protecting it from further slips."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Hold the cup perfectly still but with a continuous, low-frequency tremor, showing lingering fear and extreme caution. The suction cup droops slightly in relief/exhaustion."
+    }
+  ]
+}

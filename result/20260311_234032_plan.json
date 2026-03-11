@@ -1,0 +1,71 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' and to 'slip the cup a bit when picking up'. I will map the primary emotion to 'happy'.\n[Appeal]: The suction cup will show a cheerful tilt throughout.\n[Anticipation]: I'll start with a happy, bouncy express_emotion.\n[Show, Don't Tell]: To show 'slippery', I will perform an initial pick_up attempt, lift it slightly, then immediately deactivate_suction to simulate the slip, followed by a quick re-position and a successful pick_up.\n[Timing & Pacing]: I will insert `wait()` steps to emphasize the initial happy approach, the moment of the slip, and the successful grab.\n[Exaggeration]: The movements will be light and bouncy, and the slip will be a clear, quick drop.\n[Follow Through]: I MUST NOT end after picking up. I will conclude with a celebratory, happy express_emotion while holding the cup.",
+  "emotion": "happy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with a cheerful, curious tilt of the suction cup."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a light, bouncy sway of the arm, showing eagerness and happiness before approaching."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm with a light, slightly bouncy motion directly above the cup, maintaining a happy tilt."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still above the cup for a brief moment, a happy pause before the action."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, and attempt to lift the cup slightly, but with a small, quick jitter to indicate slipperiness."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "The Slip: Immediately release the cup, letting it drop back down onto the table with a quick, surprised jerk of the arm."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A quick, surprised pause after the slip, the suction cup tilting slightly in 'oops' fashion."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Quickly re-position the arm directly above the cup, a determined but still happy tilt, ready for a second attempt."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, and lift the cup successfully this time, with a smooth, confident motion."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup up for a brief moment, showing successful acquisition with a happy, proud tilt."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Perform a small, celebratory bounce or wave with the cup, showing triumph and continued happiness."
+    }
+  ]
+}

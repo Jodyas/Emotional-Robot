@@ -1,0 +1,47 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with anger' and also specified that the cup is 'heavy'. Therefore, the emotion is 'angry'. I need to combine the physical manifestations of anger (fast, forceful, jerky movements, aggressive appeal) with the physical manifestations of heaviness (slow, strained lifting, significant trembling/jitter, arm dipping under perceived weight). I will use anticipation before the aggressive grab, dramatic pauses to emphasize the anger and strain, and a strong follow-through that continues to express both anger and the effort of holding something heavy.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm tenses, hovering low with a slight, aggressive twitch. The suction cup angles down sharply, like an angry scowl, preparing to strike."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold this tense, angry pose for a dramatic beat, letting the anger build before the action."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Exaggeration: Slam the arm down quickly and forcefully, stopping abruptly just above the cup with high speed and a jarring stop, expressing impatience and aggression."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm with a sharp, aggressive motion onto the cup. Activate suction. Then, lift the cup very slowly and with extreme effort, showing significant trembling and jitter throughout the lift, as if struggling with immense, frustrating weight. The arm might dip slightly before the upward movement."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the heavy, trembling cup aloft for a moment, emphasizing the strain and the anger of having to deal with its weight."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: With a frustrated, jerky motion, the arm slowly and heavily pulls the cup slightly closer, still trembling with effort and anger, then holds it rigidly, refusing to yield to its weight."
+    }
+  ]
+}

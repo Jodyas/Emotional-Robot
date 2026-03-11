@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' but also mentioned it's a 'hot cup'. Therefore, the emotion is a blend of 'happy' and reacting to 'hot'.\n\n[Anticipation]: I will start with a happy little wiggle before approaching the cup.\n[Show, Don't Tell]: To show happiness, the arm movements will be bouncy and the suction cup will have a cheerful tilt. To show 'hot', there will be a quick grab, an immediate jerk away, and a quick release.\n[Act Out Object Properties]: The 'hot' property is acted out by the quick reaction after picking up the cup.\n[Timing & Pacing]: I will insert `wait()` steps to create dramatic beats: a happy pause, a quick 'ouch' pause, and a relieved 'phew' pause after dropping.\n[Exaggeration]: The happy bounces and the 'hot' reaction will be slightly exaggerated.\n[Appeal]: The suction cup will tilt happily, then quickly jerk away, then return to a happy, relieved tilt.\n[Follow Through]: After dropping the cup due to the heat, the robot will end with a happy, relieved shake, as if cheerfully shaking off the discomfort.",
+  "emotion": "happy_hot",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with a cheerful, eager tilt of the suction cup."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a happy, bouncy wiggle with the arm, as if excited to pick up the cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the happy pose briefly, letting the anticipation build."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm with a bouncy, eager motion directly above the cup, maintaining a happy tilt."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm quickly but cheerfully, activate suction, and lift the cup with a slight happy bounce."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze for a split second – the moment of 'oh, it's hot!' – a quick, surprised pause."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop"
+      },
+      "description": "Exaggeration: Jerk the arm away from the body quickly, with a slight tremble, but still trying to maintain a cheerful (though slightly pained) tilt of the suction cup."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Drop the hot cup quickly and decisively, as if letting go of something uncomfortable."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief pause after dropping, a 'phew' moment of relief."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Perform a happy, relieved shake of the arm, as if cheerfully shaking off the residual heat, ending with a bright, upward tilt of the suction cup."
+    }
+  ]
+}

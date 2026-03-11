@@ -1,0 +1,54 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' and noted it is 'hot'. I will combine these into a 'happy_hot' emotion. To show happiness, I'll use bouncy, light movements and a cheerful tilt of the suction cup. To show 'hot' while maintaining happiness, I'll perform a quick, almost playful grab, followed by a very brief, sharp 'ouch' jerk, but immediately recover to exaggerated happy movements, as if the robot is trying to ignore the heat with sheer joy. I will use anticipation with a happy pre-movement and follow through with a celebratory post-movement.",
+  "emotion": "happy_hot",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a happy, bouncy little jig with the arm, suction cup tilted up cheerfully, before approaching the cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold a brief, cheerful pose, letting the happiness sink in."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm with a light, bouncy, slightly exaggerated motion directly above the cup, as if skipping towards it."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm quickly and playfully, activate suction, then lift the cup swiftly, minimizing contact time to acknowledge the 'hot' property."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "side_jerk"
+      },
+      "description": "Immediately after lifting, perform a very quick, small, sharp jerk of the arm to the side, a subtle 'ouch' reaction to the heat."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A very brief, almost imperceptible pause for the 'hot' jolt, then immediately recover."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Immediately recover to exaggerated happiness. Perform a celebratory, bouncy wave with the cup, bringing it close as if admiring a prize, completely overriding the 'hot' sensation with joy. Suction cup remains tilted up cheerfully."
+    }
+  ]
+}

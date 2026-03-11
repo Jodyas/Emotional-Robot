@@ -1,0 +1,64 @@
+{
+  "reasoning": "The instruction asks to 'look at the cup curiously', then 'pick up the hot cup', and finally 'throw the hot cup'. The initial phase is 'curious', but the subsequent actions of handling a 'hot' object and 'throwing' it strongly indicate pain, panic, and a forceful reaction. Therefore, the dominant emotion for the overall sequence is 'angry_hot', which encompasses both the pain from heat and the aggressive 'throw'.\n\nAnimation Principles Applied:\n-   **Curiosity**: Initial `express_emotion` and `move_to` will involve slow, investigative movements and a tilted suction cup.\n-   **Hot Object**: The `pick_up` will be quick, followed by an immediate `wait` (realization) and violent `express_emotion` (pain/shaking).\n-   **Throw**: `move_to` will act as a wind-up, and `deactivate_suction` will be forceful, followed by a strong recoil.\n-   **Anticipation**: A pause before the curious approach, and a wind-up before the throw.\n-   **Timing & Pacing**: `wait()` steps are strategically placed to emphasize curiosity, the realization of heat, and the impact of the throw.\n-   **Exaggeration**: Violent shaking for pain, sharp movements for throwing.\n-   **Follow Through**: The sequence ends with the arm recoiling and shaking in pain/disgust after the throw.",
+  "emotion": "angry_hot",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Curiosity: Tilt the suction cup slightly to the side, slowly moving the arm in a small arc around the cup, as if examining it with interest."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a moment, letting the audience 'read' the curious pose."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Curious Approach: Slowly and smoothly move the arm directly above the cup, with a slight, gentle wobble, as if carefully investigating before touching."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Hot Cup Grab: Lower the arm quickly, activate suction, and immediately lift the cup with a sharp, surprised jerk, indicating it's hot."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! A brief, dramatic pause as the robot 'realizes' the cup is burning hot."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Pain/Panic: Violently shake the arm back and forth while holding the cup, as if trying to cool it down or get rid of the heat."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "throw_position"
+      },
+      "description": "Anticipation/Wind-up: Sharply pull the arm back and to the side, preparing for a forceful throw, showing anger and urgency."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Throw: Forcefully extend the arm forward and release the cup with a sudden, aggressive motion, simulating throwing it away in pain."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Immediately recoil the arm sharply after the throw, then shake it vigorously in the air, as if still feeling the burn and expressing lingering pain and frustration."
+    }
+  ]
+}

@@ -46,7 +46,7 @@ class RobotPrimitives:
                     targetPosition=joint_poses[i], force=force
                 )
             p.stepSimulation()
-            time.sleep(1.0 / 240.0)
+            time.sleep(1.5 / 240.0)
 
     def move_to(self, target, steps: int = 200, force: float = 200, noise_amp: float = 0.0, noise_freq: float = 0.0, tilt: list = None):
         """
@@ -89,7 +89,7 @@ class RobotPrimitives:
                     targetPosition=joint_poses[i], force=force
                 )
             p.stepSimulation()
-            time.sleep(1.0 / 240.0)
+            time.sleep(1.5 / 240.0)
 
     # ------------------------------------------------------------------
     # Core Primitives
@@ -138,4 +138,4 @@ class RobotPrimitives:
         """等待指定的模擬步數。"""
         for _ in range(steps):
             p.stepSimulation()
-            time.sleep(1.0 / 240.0)
+            time.sleep(1.5 / 240.0)

@@ -1,0 +1,52 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' and to 'act out it's heavy'.\n\nEmotion: 'happy'.\n\nTo show 'heavy': I will use slow, strained movements, significant trembling during the lift, and a slight dip/struggle after lifting. The arm will 'brace' itself before the lift.\n\nTo show 'happily': I will start with a cheerful, bouncy 'express_emotion'. The arm's movements will be generally smooth and upward-tilting where appropriate. After successfully lifting the heavy cup, the arm will perform a proud, happy gesture.\n\nAnimation Principles:\n- Show, Don't Tell: Slow, trembling lift for heavy; bouncy, upward tilt for happy.\n- Anticipation: A slight 'brace' before the heavy lift.\n- Timing & Pacing: Insert `wait()` steps for dramatic pauses: after the initial happy gesture, before the heavy lift, and after successfully lifting the heavy cup to show the struggle and then triumph.\n- Exaggeration: Amplify the trembling and slow speed for weight, and the upward tilt for happiness.\n- Appeal: The suction cup will tilt up happily.\n- Follow Through: The sequence will end with a proud, happy sway of the arm, holding the heavy cup.",
+  "emotion": "happy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a cheerful, bouncy wave with the arm, tilting the suction cup upwards happily."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the happy pose briefly to let the emotion register."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm smoothly and happily towards the cup, but with a slight, subtle 'brace' or hesitation as it approaches, anticipating the weight."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, holding perfectly still, as if gathering strength and bracing for the heavy lift."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm slowly, activate suction, then lift the cup *very slowly* and with significant *trembling* and *strained effort* to show it is heavy. The arm should struggle slightly upwards."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the heavy cup, letting it dip slightly downwards for a moment, then slowly stabilize it, showing the effort of holding the weight."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Perform a proud, happy, slow sway with the arm, holding the heavy cup aloft. The suction cup should tilt upwards, as if showing off its accomplishment."
+    }
+  ]
+}

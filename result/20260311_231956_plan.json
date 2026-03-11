@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with curiously', which directly indicates the 'curious' emotion. To animate curiosity, I will focus on slow, investigative movements, exaggerated tilts of the suction cup (as if 'looking'), and frequent pauses for observation. I will use anticipation by having the arm 'peek' at the cup before approaching. Timing will involve deliberate waits to allow the audience to read the robot's observational poses. The pick-up will be gentle and exploratory. For follow-through, the robot will bring the cup closer for a final, detailed examination.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup slightly to the side, as if peeking around, showing initial interest."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the curious peek pose for a moment, observing from a distance."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm slowly and deliberately towards the cup's general vicinity, but not directly above it. Keep the suction cup tilted, 'inspecting' it from a side angle."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause to observe the cup from this new angle, perhaps bobbing slightly up and down."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Exaggeration: Slowly circle the cup once, maintaining a tilted 'gaze' with the suction cup, as if examining all sides."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause again, directly above the cup now, but still with a slight tilt, pondering before the grab."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm gently, activate suction, and lift the cup slowly, as if feeling its weight or texture with interest."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup up, pausing to 'examine' it closely after lifting."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Bring the cup closer to the robot's 'body', tilting and rotating it slowly, as if scrutinizing it with deep curiosity."
+    }
+  ]
+}

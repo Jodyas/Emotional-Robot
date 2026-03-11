@@ -1,0 +1,63 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with fear'.\n\nEmotion: 'fear'.\n\nAnimation Principles:\n- Show, Don't Tell: Fear will be expressed through hesitation, trembling, jerky movements, and quick retreats.\n- Anticipation: The arm will recoil slightly and tremble before approaching the cup.\n- Timing & Pacing: I will use long pauses to build tension and sudden, quick movements followed by freezes.\n- Exaggeration: Extreme trembling (high noise) and rapid, jerky movements will amplify the fear.\n- Appeal: The suction cup will tilt away or droop slightly, conveying reluctance.\n- Follow Through: After picking up, the arm will quickly pull the cup close and tremble, as if holding something terrifying.",
+  "emotion": "fear",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm recoils slightly, trembling violently, as if hesitant to even look at the cup. The suction cup tilts away in dread."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still for a dramatic pause, letting the fear build."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "noise": "high",
+        "speed": "slow"
+      },
+      "description": "Hesitant approach: Move the arm very slowly and jerkily towards the cup, stopping short, as if too scared to get close. The suction cup droops."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze above the cup, trembling slightly, staring at it with extreme reluctance."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "fast",
+        "noise": "medium"
+      },
+      "description": "Exaggeration: With a sudden, jerky dart, the arm quickly moves directly over the cup, as if forcing itself to act."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Grab quickly: Slam down, activate suction, and immediately yank the cup upwards and away from the table with a shudder."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief, shaky pause after lifting, holding the cup tightly, still trembling."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Quickly pull the cup close to the robot's 'body' and tremble violently, as if holding something terrifying and wanting to hide it, or keep it safe from itself. The suction cup is angled down, 'looking' at the cup with wide-eyed fear."
+    }
+  ]
+}

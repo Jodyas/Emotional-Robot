@@ -1,0 +1,76 @@
+{
+  "reasoning": "The user explicitly asks to look at the cup 'curiously' and then pick up a 'slippery' cup, including a 'slip the cup a bit when picking up'. This clearly indicates a 'curious' emotion, combined with the physical challenge of a 'slippery' object. I will use anticipation by having the robot express curiosity before approaching. To show 'slippery', I will simulate a failed or partial pick-up attempt where the cup slips, followed by a more careful re-attempt. Timing will be used with `wait()` calls to emphasize the curiosity, the slip, and the careful re-grasp. The 'slip' will be exaggerated by a brief drop and re-suction. Follow-through will involve holding the cup carefully with slight jitters, still showing curiosity.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup to the side, hover slightly, and perform a slow, investigative wobble to show curiosity about the cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic beat, letting the audience 'read' the robot's curious pose."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Approach the cup slowly and cautiously, with a slight side-to-side sway, as if examining it closely. Keep the suction cup tilted curiously."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, 'inspecting' it before attempting to grab."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Attempt to pick up the cup. Lower the arm, activate suction, and lift slightly. This is the initial, slightly clumsy attempt."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_slightly_down"
+      },
+      "description": "Exaggeration: Immediately after initial suction, move the arm down a tiny bit with a sudden jerk and slight jitter, simulating the cup slipping from the suction cup's grasp."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Briefly deactivate suction to emphasize the 'slip' and the moment of surprise."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief moment of 'oh no!' or re-evaluation after the slip."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Re-attempt to pick up the cup, this time more carefully. Lower the arm slowly, activate suction, and lift gently with slight, careful jitters to show it's still slippery."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after successfully lifting, ensuring the audience sees the cup is now held, albeit carefully."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Bring the cup closer to the robot's 'body', holding it with continuous slight jitters to show its slippery nature. Tilt the suction cup again, as if still curiously examining the challenging object it just managed to secure."
+    }
+  ]
+}

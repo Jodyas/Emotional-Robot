@@ -1,0 +1,69 @@
+{
+  "reasoning": "The user's instruction has two parts: 'look at the cup curiously' and 'pick up the hot cup'. I will combine these into an overall 'curious' emotion that transitions into a 'pain/shock' reaction due to the 'hot' property of the cup.\n\n[Emotion Detection]: The initial action is 'curious'. The second part implies a physical reaction to 'hot'.\n[Show, Don't Tell]: Curiosity will be shown through slow, investigative movements and tilts of the suction cup. The 'hot' property will be shown by a sudden jerk, dropping the cup, and then shaking the arm in pain.\n[Anticipation]: A slight hover and tilt before approaching the cup to build curiosity.\n[Timing & Pacing]: I will insert `wait()` steps to allow the audience to 'read' the curious examination, the moment of realization that the cup is hot, and the shock after dropping it.\n[Exaggeration]: The shaking for pain will be vigorous. The curious tilt will be pronounced.\n[Appeal]: The suction cup will tilt to one side to show curiosity. It will jerk away sharply in pain.\n[Follow Through]: The sequence MUST end with the arm shaking in pain/discomfort after dropping the hot cup.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Hover the arm slightly above the table, tilting the suction cup to one side, as if 'peering' at the cup with curiosity."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the curious pose for a moment, letting the audience register the 'look'."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm slowly and deliberately towards the cup, making small, investigative side-to-side movements as if examining it closely."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, holding perfectly still, as if 'studying' it before making a move."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, and lift the cup. This action is initially smooth, but immediately followed by a reaction."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! A sudden, brief pause as the robot 'realizes' the cup is hot. The arm might stiffen slightly."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop"
+      },
+      "description": "Exaggeration: Jerk the arm away from the table quickly and violently, as if recoiling from the heat."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Drop the cup immediately and abruptly, releasing it as if burned."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Moment of shock after dropping. Hold the arm stiffly in the air, slightly away from the drop zone."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Vigorously shake the arm side to side, as if trying to cool off a burned hand, showing clear discomfort and pain."
+    }
+  ]
+}

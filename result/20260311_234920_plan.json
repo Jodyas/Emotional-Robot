@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with fear' and to 'act out it's heavy'. Therefore, the emotion is 'fear'. To show fear, I will use hesitant, jerky movements and a slight recoil. To show heaviness, I will use slow, strained, and trembling movements, especially during the lift. I will incorporate anticipation by having the arm flinch and hesitate before approaching. Timing will be used with `wait()` calls to emphasize the fear and the strain of the weight. Exaggeration will be applied to the trembling and slowness. The suction cup will tilt away slightly to show fear. The follow-through will involve continued trembling and a slow, strained movement to a 'safe' position, ending with a final shudder of relief/exhaustion.",
+  "emotion": "fear",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm flinches slightly and recoils, then slowly approaches with extreme hesitation and a slight side-to-side tremor, as if facing something scary. The suction cup tilts away slightly."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic pause, letting the audience feel the fear and reluctance."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm very slowly and hesitantly above the cup, with continuous, subtle trembling. The suction cup maintains a slight 'scared' tilt."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, gathering courage and bracing for the perceived heavy lift. A slight, nervous jitter."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm slowly and cautiously. Activate suction. Then, lift the cup *extremely slowly* and with significant, exaggerated trembling and jitter, showing immense strain and effort, as if the cup is incredibly heavy. The arm might dip slightly before the upward movement to show bracing."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup aloft, trembling intensely and struggling to maintain its position, emphasizing the perceived weight and the fear of dropping it."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "side_safe_position"
+      },
+      "description": "Follow Through: Slowly, with continued exaggerated trembling and visible strain, move the cup to a slightly different, 'safer' position on the table, as if trying to get rid of the heavy burden."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Carefully and slowly release the cup, as if relieved to be rid of the weight."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: The arm slowly droops, performing a final, exhausted shudder, then slowly pulls back, showing relief and lingering exhaustion from the ordeal of lifting the 'heavy' and 'scary' cup."
+    }
+  ]
+}

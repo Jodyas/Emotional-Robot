@@ -1,0 +1,52 @@
+{
+  "reasoning": "The user explicitly requested to pick up the 'heavy cup with fear' and to 'drop the head a bit when picking up and act out it's heavy.' This clearly indicates a 'fearful_heavy' emotion. I need to translate fear into hesitation, trembling, and a drooping suction cup (the 'head'). Heaviness will be shown through slow, strained movements, significant jitter, and a bracing action before the lift. I will use anticipation before approaching and lifting, and insert wait() steps for dramatic pacing. The suction cup will tilt downwards to represent the 'dropped head' and the strain. Finally, I will ensure a follow-through action that continues to express the exhaustion or relief after lifting the heavy object.",
+  "emotion": "fearful_heavy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm trembles slightly, the suction cup tilts downwards (drooping head) showing initial apprehension and fear."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still, letting the fear and hesitation build before approaching."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm very slowly and hesitantly towards the cup, with continuous slight trembling. The suction cup maintains a fearful, drooping tilt."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, bracing for the perceived weight. A slight dip as if gathering strength, still trembling."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm slowly and with great effort, activate suction. Lift the cup extremely slowly, with exaggerated jitter and strain, as if struggling with immense weight. The suction cup droops significantly downwards, showing the 'dropped head' and the effort."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup aloft, still trembling slightly, emphasizing the sustained effort of holding something so heavy."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Slowly bring the cup closer to the robot's body, as if resting it after the strenuous lift. The arm still shows a slight, continuous tremor, and the suction cup remains slightly drooped, conveying exhaustion and relief."
+    }
+  ]
+}

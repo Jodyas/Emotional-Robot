@@ -1,0 +1,66 @@
+{
+  "reasoning": "The user explicitly asked to pick up a 'heavy cup with fear' and to 'drop the head a bit when picking up and act out it's heavy.' This clearly indicates a 'fearful_heavy' emotion. I will use trembling, hesitant movements, and a drooping suction cup to show fear. To act out 'heavy,' I will use slow, strained movements, significant jitter during the lift, and a slight dip before lifting. I will incorporate anticipation by having the arm tremble before approaching and dip before lifting. Timing will be managed with `wait()` steps to emphasize hesitation, strain, and the moment of holding the heavy object. The suction cup will tilt down to represent the 'head drop' and general fear/strain. The sequence will conclude with a follow-through of continued trembling and slow movement, still conveying the fear and weight.",
+  "emotion": "fearful_heavy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: The arm trembles noticeably, making a slight jerky movement away from the cup, showing reluctance and fear. The suction cup 'head' tilts slightly down."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic pause, letting the fear and hesitation build."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "noise": "high",
+        "speed": "slow"
+      },
+      "description": "Move the arm slowly and hesitantly towards the cup, with continuous, high-frequency trembling to show fear. The suction cup 'head' remains slightly drooped."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, still trembling, as if gathering courage or bracing for the effort."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_pre_lift_dip",
+        "speed": "very_slow",
+        "tilt": "down"
+      },
+      "description": "Anticipation for Heavy Lift: Perform a very slow, slight dip downwards just before activating suction, as if bracing for the immense weight. The suction cup 'head' drops further down."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "very_slow",
+        "noise": "extreme",
+        "tilt": "down"
+      },
+      "description": "Lower the arm very slowly, activate suction. Lift the cup with extreme slowness and significant, strained jitter/trembling, showing immense effort. The suction cup 'head' remains heavily drooped, conveying strain and fear."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup aloft for a moment, still trembling from the effort and fear. A moment of strained triumph or relief."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Slowly bring the cup closer, still trembling and moving very deliberately, as if the weight is an ongoing struggle and the fear persists. The suction cup 'head' remains slightly drooped, showing continued strain and apprehension."
+    }
+  ]
+}

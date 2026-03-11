@@ -1,0 +1,76 @@
+{
+  "reasoning": "The user explicitly requested 'curious' emotion and to 'act out it's spiky'.\n\nTo convey 'curiosity', I will use slow, investigative movements, tilting the suction cup as if observing, and inserting pauses for contemplation.\n\nTo 'act out spiky', I will incorporate hesitant approaches, slight recoils or jerks away as if pricked, and a gingerly hold after picking up.\n\nAnimation Principles:\n- Show, Don't Tell: Slow, deliberate movements and recoils show curiosity and spikiness.\n- Act Out Object Properties: Hesitation and quick jerks simulate the feeling of spikes.\n- Anticipation: A lean-in and observation phase before the first approach.\n- Timing & Pacing: Strategic `wait()` steps create dramatic beats for observation, reaction, and contemplation.\n- Exaggeration: The recoils will be quick and noticeable.\n- Appeal: Tilting the suction cup to mimic a head tilt for curiosity.\n- Follow Through: A final 'uncomfortable' movement after picking up to emphasize the spikiness.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Lean in slightly, tilting the suction cup to the side as if observing the cup with initial curiosity."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the pose, allowing the audience to 'read' the initial curious observation."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Curiosity: Slowly and tentatively move the arm towards the cup, stopping a short distance away to inspect it."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Act Out Spiky/Curiosity: Circle the suction cup slowly around the cup, tilting it from side to side, as if examining the spikes from different angles."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause to 'process' the visual information of the spikes."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Act Out Spiky: Move *very* slightly closer to the cup, then perform a quick, small jerk back, as if tentatively touching a spike and recoiling."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still, a moment of hesitation and consideration after the 'prick'."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Careful Grab: Slowly and precisely position the arm directly above the cup, avoiding any further contact with the sides."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Gently lower the arm, activate suction, and lift the cup slowly and smoothly."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after lifting, holding the cup gingerly."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through/Act Out Spiky: Perform a slight, quick tremor or a small, uncomfortable jerk of the arm, as if the spikes are still a bit bothersome even when held. Tilt the cup slightly away from the arm's body."
+    }
+  ]
+}

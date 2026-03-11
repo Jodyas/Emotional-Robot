@@ -1,0 +1,60 @@
+{
+  "reasoning": "The user explicitly requested to 'pick up the cup with anger'.\n\nEmotion Detection: The instruction directly states 'anger', so the emotion is 'angry'.\n\nAnimation Principles for 'Angry':\n- Show, Don't Tell: Anger will be conveyed through fast, forceful, and jerky movements, with high jitter and aggressive posturing.\n- Anticipation: Before lunging, the arm will perform a sharp, frustrated jerk.\n- Timing & Pacing: Movements will be abrupt and quick, punctuated by short, tense pauses.\n- Exaggeration: The arm will 'slam' down and 'yank' up the cup, with exaggerated jitter.\n- Appeal: The suction cup will be angled aggressively downwards during approach, and held defiantly after picking up.\n- Follow Through: After picking up, the arm will not just stop, but perform a final aggressive shake or defiant hold to conclude the angry action.\n\nStep-by-step Plan:\n1.  Detect the cup.\n2.  Anticipation: Perform an angry, frustrated jerk of the arm.\n3.  Wait: A brief, tense pause to emphasize the anger.\n4.  Move to: Lunge aggressively and quickly towards the cup, with high jitter.\n5.  Wait: A very short, tense pause directly above the cup, like a predator.\n6.  Pick up: Slam down onto the cup, activate suction, and yank it up forcefully.\n7.  Wait: A defiant pause, holding the cup aggressively.\n8.  Follow Through: Perform a final aggressive shake or defiant hold of the cup.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a sharp, frustrated jerk of the arm, pointing the suction cup aggressively towards the cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a brief, tense pause, letting the anger build."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "fast",
+        "noise": "high",
+        "tilt": "down_sharp"
+      },
+      "description": "Lunge the arm aggressively and quickly above the cup, with high jitter, as if slamming down."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still for a very short, tense moment directly above the cup, like a predator eyeing its prey."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "fast",
+        "force": "high"
+      },
+      "description": "Slam the arm down onto the cup, activate suction, then yank the cup up quickly and forcefully."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup defiantly and aggressively in the air for a brief pause."
+    },
+    {
+      "action": "express_emotion",
+      "args": {
+        "noise": "medium",
+        "tilt": "up_slight"
+      },
+      "description": "Follow Through: Perform a final aggressive shake of the arm, holding the cup defiantly, as if glaring at it."
+    }
+  ]
+}

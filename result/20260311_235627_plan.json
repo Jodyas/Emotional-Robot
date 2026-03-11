@@ -1,0 +1,47 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup with 'anger' and to 'act out it's spiky'.\n\n1.  **Emotion Detection**: The primary emotion is 'anger'.\n2.  **Acting Out 'Spiky'**: To show the cup is spiky, the robot needs to react to it as if it's painful or dangerous. This will involve hesitation, quick forceful movements to minimize contact, and a 'shaking off' motion.\n3.  **Acting Out 'Anger'**: This will be conveyed through sharp, forceful, and possibly jittery movements.\n4.  **Animation Principles Applied**:\n    *   **Show, Don't Tell**: Instead of stating 'it's spiky', the robot will flinch, jab, and shake. Anger will be shown through speed and force.\n    *   **Anticipation**: Before grabbing, the arm will perform an aggressive, almost jabbing motion towards the cup, then recoil slightly, building tension.\n    *   **Timing & Pacing**: Strategic `wait()` steps will be used to emphasize the anticipation, the moment of contact with the 'spikes', and the follow-through.\n    *   **Exaggeration**: The jabbing, the quick grab, and the final 'shaking off' will be exaggerated to convey both anger and the spiky nature.\n    *   **Appeal**: The suction cup might tilt aggressively or recoil sharply.\n    *   **Follow Through**: After picking up, the robot will perform a final, exaggerated 'shaking off' motion to show it's still reacting to the spikes and its anger.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Aggressively jab the arm towards the cup, then sharply recoil, showing anger and wariness of the 'spikes'."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic beat, letting the audience feel the tension before the angry approach."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm quickly and forcefully above the cup, with a slight, angry jitter, as if bracing for contact with the 'spikes'."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Slam the arm down fast, activate suction, and thrust the cup up with a sharp, quick jerk, minimizing 'spiky' contact."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief, tense pause after lifting, holding the 'spiky' cup with a slight tremor."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Angrily shake the cup off to the side, as if trying to dislodge the 'spikes' or get rid of the annoying object."
+    }
+  ]
+}

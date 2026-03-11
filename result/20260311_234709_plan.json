@@ -1,0 +1,65 @@
+{
+  "reasoning": "The user explicitly requested 'curious' emotion and to 'act out it's heavy'. I will combine these. To show curiosity, the arm will approach slowly, tilt the suction cup, and hesitate. To show heaviness, movements will be slow, strained, and include jitter/trembling, especially during and after the lift. I will use anticipation before the lift and a follow-through that emphasizes the weight.",
+  "emotion": "curious_heavy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup slightly to the side, looking 'curious', and make a small, hesitant exploratory movement towards the cup's general direction."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the curious pose, observing the cup before committing to a direct approach."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "slow",
+        "tilt": "curious_side"
+      },
+      "description": "Move the arm slowly and deliberately above the cup, maintaining a curious side-tilt of the suction cup, as if examining it."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause directly above the cup, holding the curious tilt, as if contemplating its weight or nature."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "very_slow",
+        "noise": "high"
+      },
+      "description": "Lower the arm very slowly, bracing for impact. Activate suction, then lift the cup extremely slowly with significant jitter and trembling to show immense strain from its weight. After lifting, let it momentarily 'sag' slightly before catching itself, emphasizing the sudden heaviness."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup aloft, visibly struggling against its weight, with a slight tremor."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "side_table",
+        "speed": "slow",
+        "noise": "medium"
+      },
+      "description": "Slowly and carefully move the heavy cup to a new position, maintaining a slight tremor to continuously act out its weight. The suction cup maintains a slightly strained, curious tilt."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Gently lower the cup a tiny bit, then lift it slightly again, as if testing its weight one last time, ending with a sustained, curious and strained hold."
+    }
+  ]
+}

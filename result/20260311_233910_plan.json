@@ -1,0 +1,61 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' and to 'slip the cup a bit when picking up'.\n\nEmotion: 'happy'.\n\nAnimation Principles for 'happy':\n- Appeal: The suction cup should have a cheerful, slightly bouncy tilt.\n- Timing & Pacing: Movements should be light, energetic, and quick, with short, expressive pauses.\n- Anticipation: A small, happy wiggle or bounce before moving.\n- Follow Through: A celebratory jig or wave after successfully picking up the cup.\n\nAnimation Principles for 'slippery':\n- Show, Don't Tell: The 'slip' must be physically acted out. This means after the initial pick-up, there will be a quick, small, jerky 'move_to' to simulate the slip, followed by a quick re-stabilization.\n- Timing & Pacing: The slip should be sudden and brief, followed by a quick recovery.\n\nSequence:\n1.  Detect the cup.\n2.  Anticipate with a happy wiggle.\n3.  Move happily and quickly above the cup.\n4.  Attempt to pick up the cup.\n5.  Immediately perform a quick, small 'slip' movement.\n6.  Quickly re-stabilize the cup.\n7.  Pause to acknowledge the successful (though slightly clumsy) pick-up.\n8.  Follow through with a happy, celebratory movement.",
+  "emotion": "happy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with a cheerful, slightly tilted suction cup."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a small, happy wiggle or bounce, as if eager to start."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief, light pause to let the happy anticipation register."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm quickly and with a light, bouncy motion directly above the cup, suction cup tilted happily."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, and begin to lift the cup with a quick, confident motion."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_slightly_offset"
+      },
+      "description": "Act Out Property: Immediately after lifting, perform a quick, small, jerky movement to the side, simulating the cup slipping slightly in the suction cup. The suction cup might momentarily tilt in surprise."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_stable_position"
+      },
+      "description": "Quickly re-stabilize the cup, bringing it back to a secure, centered position with a slight, reassuring 'pat' motion. The suction cup re-tilts happily."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief pause, as if the robot is saying 'Phew! Got it!' with a happy little bob."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Perform a happy little jig or celebratory wave with the cup, showing triumph and continued happiness despite the minor slip."
+    }
+  ]
+}

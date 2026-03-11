@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly states 'pick up the heavy cup with anger' and provides a specific instruction: 'drop the arm a bit when picking up as it's heavy.' This clearly indicates an 'angry' emotion combined with the physical challenge of 'heaviness'.\n\nTo convey 'anger': I will use fast, forceful, and jerky movements. The suction cup will be angled aggressively.\nTo convey 'heaviness': I will incorporate a noticeable downward 'dip' or 'sag' when attempting to lift, followed by a slow, strained ascent with visible trembling. The arm will move slowly and deliberately while holding the cup.\n\nAnimation Principles:\n- Show, Don't Tell: Anger is shown through sharp, aggressive movements. Heaviness is shown through slow, strained lifts and dips.\n- Act Out Object Properties: The 'heavy' property is acted out by the arm dipping, lifting slowly, and trembling.\n- Anticipation: A tense, sharp movement before the aggressive approach.\n- Timing & Pacing: Strategic `wait()` pauses will emphasize the anger and the strain of lifting the heavy object.\n- Exaggeration: Amplify the force of the angry movements and the strain of the heavy lift.\n- Appeal: The suction cup will tilt aggressively to show anger, then droop slightly under the perceived weight.\n- Follow Through: The sequence will end with a final, strained movement or pose, still emphasizing the weight and lingering anger.",
+  "emotion": "angry_heavy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table with a sharp, focused movement."
+    },
+    {
+      "action": "express_emotion",
+      "args": {
+        "tilt": "aggressive_forward"
+      },
+      "description": "Anticipation: The arm tenses, performing a quick, sharp, frustrated shake, as if impatient. Suction cup tilts aggressively forward."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief, tense pause to build up the angry energy before the approach."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup",
+        "speed": "fast",
+        "noise": "low_jitter"
+      },
+      "description": "Move the arm quickly and forcefully directly above the cup, almost slamming down, showing anger."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup",
+        "speed": "strained_slow",
+        "noise": "high_tremble"
+      },
+      "description": "Act Out Heaviness: Forcefully press down, then 'drop the arm a bit' with a noticeable dip as if bracing for weight. Activate suction, then lift the cup slowly and with significant trembling, showing extreme strain."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup mid-air, slightly sagging, emphasizing its perceived heavy weight and the effort required to hold it."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "side_table_position",
+        "speed": "very_slow",
+        "noise": "medium_tremble"
+      },
+      "description": "Move the heavy cup slowly and deliberately to a new position on the side, maintaining the strained posture and trembling, still showing the immense effort."
+    },
+    {
+      "action": "express_emotion",
+      "args": {
+        "tilt": "strained_downward"
+      },
+      "description": "Follow Through: Hold the cup in the new position, the arm slightly lower than expected, with a persistent tremble and the suction cup drooping slightly, conveying lingering strain and frustration from the heavy lift."
+    }
+  ]
+}

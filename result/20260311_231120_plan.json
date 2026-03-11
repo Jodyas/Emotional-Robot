@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly requested to pick up a 'hot cup with anger'. This clearly indicates the 'angry_hot' emotion. I will combine aggressive, forceful movements for anger with a quick drop and recoil for the 'hot' property.\n\n[Anticipation]: Before moving, the arm will tense and perform a sharp, frustrated jerk.\n[Show, Don't Tell]: Anger will be shown through fast, aggressive lunges and forceful grabs. The 'hot' property will be shown by a sudden freeze after picking up, followed by a violent recoil and drop.\n[Timing & Pacing]: I will insert `wait()` steps for dramatic effect: a pause after the initial angry jerk, a crucial freeze after grabbing (realization of heat), and a brief pause after dropping.\n[Exaggeration]: The movements will be amplified – a violent lunge, a sharp yank, a thrashing recoil.\n[Appeal]: The suction cup will angle aggressively during the lunge and recoil sharply in 'pain'.\n[Follow Through]: The sequence will conclude with the arm thrashing violently to express lingering anger and pain from the 'hot' cup.",
+  "emotion": "angry_hot",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with a tense, focused posture."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Arm tenses, then performs a sharp, frustrated jerk to the side, showing initial anger and impatience."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the tense, slightly agitated pose for a dramatic beat, building up frustration."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Angry approach: Arm lunges quickly and aggressively directly above the cup, with a slight, agitated jitter, suction cup angled down menacingly."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Angry grab: Slams down forcefully onto the cup, activates suction, then yanks the cup up sharply and quickly."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! A sudden, sharp pause immediately after lifting, as the robot 'realizes' the cup is burning hot. Suction cup tilts back in shock."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop"
+      },
+      "description": "Recoil and drop: Arm jerks violently away from the table, flinging the cup to the side in a panicked, angry reaction to the heat."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Release the cup with an angry, disgusted flick, as if throwing it away."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief, stunned pause after the violent drop, a moment of lingering shock and anger."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Arm thrashes violently side to side, shaking off the 'heat' and expressing lingering anger and frustration, perhaps ending with a frustrated slam onto the table."
+    }
+  ]
+}

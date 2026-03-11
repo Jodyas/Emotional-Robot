@@ -1,0 +1,71 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'happily' and 'act out it's spiky'.\n\nEmotion: 'happy'.\n\nAnimation Principles:\n- Show, Don't Tell: Happiness will be shown through bouncy, fluid movements and a cheerful 'express_emotion'. The 'spiky' nature will be shown through small, quick 'poking' movements and slight 'flinches' or 'jerks' during the pick-up.\n- Anticipation: A happy wave before approaching the cup. Playful 'pokes' before the final grab.\n- Timing & Pacing: Strategic `wait()` pauses will be used to emphasize the happy anticipation, the 'spiky' interaction, and the successful, happy pick-up.\n- Exaggeration: Exaggerate the happy bouncing and the quick 'flinch' from the spikes.\n- Appeal: The suction cup will tilt curiously or happily.\n- Follow Through: The sequence will end with a happy 'dance' or sway with the cup, reinforcing the 'happy' emotion.",
+  "emotion": "happy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Perform a happy, bouncy wave with the arm, tilting the suction cup curiously, showing excitement to interact with the cup."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the happy pose for a moment, letting the audience 'read' the emotion."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Approach the cup with a light, bouncy movement, hovering slightly above it, as if playfully assessing the 'spikes'."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_side_poke_1"
+      },
+      "description": "Act Out Spiky: Gently 'poke' the side of the cup with the suction cup, then quickly retract a tiny bit, as if feeling a spike playfully."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A brief pause to emphasize the playful 'poke' and slight 'surprise'."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_side_poke_2"
+      },
+      "description": "Act Out Spiky: Another playful 'poke' from a different angle, retracting quickly again, enjoying the 'spiky' sensation."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Another brief pause before committing to the grab."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm, activate suction, and lift the cup with a slight, quick 'flinch' or 'jerk' upwards as if the spikes were felt, then immediately smooth into a happy, confident lift."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after lifting, holding the cup securely, letting the audience see it's successfully held."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Perform a happy little 'dance' or sway with the cup, tilting it slightly, showing joy and success despite the 'spikes'."
+    }
+  ]
+}

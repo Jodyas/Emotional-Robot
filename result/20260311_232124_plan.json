@@ -1,0 +1,78 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with curious', so the emotion is 'curious'. To convey curiosity, I will use slow, investigative movements, tilting the suction cup as if 'peering' at the object, and incorporating pauses for dramatic effect. I will also include a 'testing' action before the final pick-up. The follow-through will involve 'examining' the picked-up cup.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Suction cup tilts slightly to the side, as if peering at the table, showing initial curiosity."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a brief moment, letting the audience register the curious pose."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm slowly and deliberately towards the cup's general area, with a slight side-to-side sway, as if cautiously exploring."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Hover above the cup, tilting the suction cup left and right, as if examining it from different angles."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the 'examining' pose above the cup."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Lower slightly to 'touch' the side of the cup very gently, then pull back slightly, as if testing its stability or texture."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after the 'test', considering the next move."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move directly above the cup, very slowly and smoothly, with a slight hesitant wobble before settling."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower gently, activate suction, and lift the cup smoothly and carefully."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after lifting, holding the cup, allowing the audience to see it's secured."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Bring the cup closer to the 'body', tilting it slowly from side to side, as if inspecting its weight and form with continued curiosity."
+    }
+  ]
+}

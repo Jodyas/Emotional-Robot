@@ -1,0 +1,82 @@
+{
+  "reasoning": "The user explicitly requested to pick up a 'hot cup' with a 'curious' emotion. I will combine these two aspects. To show curiosity, the robot will approach tentatively, observe, and 'peek'. To show the 'hot' property, the robot will hesitate, make a quick, light 'touch' or close hover, and then recoil slightly before carefully picking it up. I will use `wait()` for dramatic pauses and `express_emotion()` to convey the curious and slightly wary demeanor. The suction cup will tilt to show curiosity. The sequence will end with a follow-through of continued curious examination of the 'hot' cup.",
+  "emotion": "curious",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table.",
+      "tilt": "neutral"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup slightly to the side, performing a small, investigative wiggle to show initial curiosity.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Slowly and deliberately approach the cup from an angle, 'peeking' at it rather than moving directly above. Maintain a curious tilt.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause, holding the curious tilt, as if observing the cup intently.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup_rim_hover"
+      },
+      "description": "Tentatively move the suction cup very close to the cup's rim, almost touching, then quickly recoil slightly, as if feeling the heat.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "A quick, subtle shake of the arm (reacting to heat), then a more pronounced curious tilt, as if processing the 'hot' sensation and finding it interesting.",
+      "tilt": "curious_side_exaggerated"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause, considering the next move after the 'hot' discovery.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Carefully, with a slight side-tilt of the suction cup, move directly above the cup, maintaining curiosity but with a hint of caution.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Gently lower, activate suction, and lift the cup with a slightly quicker upward motion, as if still wary of prolonged contact with the 'hot' surface.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup, observing it with a curious tilt after lifting.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Bring the cup closer, tilt it from side to side, examining it with sustained curiosity, perhaps a very subtle, controlled tremor to acknowledge the 'hot' property while still being intrigued.",
+      "tilt": "curious_side_examining"
+    }
+  ]
+}

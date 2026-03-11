@@ -1,0 +1,66 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with anger' and 'act out it's heavy'.\n\n1.  **Emotion Detection**: The primary emotion is 'anger'.\n2.  **Core Actions**: The sequence must include `detect_object`, `move_to` (above cup), and `pick_up`.\n3.  **Animation Principles - 'Anger'**: \n    *   **Anticipation**: Before moving, a sharp, frustrated jerk of the arm.\n    *   **Show, Don't Tell**: Forceful, abrupt movements when not struggling with weight. The suction cup might tilt aggressively.\n    *   **Exaggeration**: Amplify the force and speed of angry movements.\n4.  **Animation Principles - 'Heavy'**: \n    *   **Show, Don't Tell**: Slow, strained movements with significant jitter/trembling, especially during the lift and while holding.\n    *   **Timing & Pacing**: Long, deliberate pauses during the lift, as if struggling with immense effort.\n    *   **Exaggeration**: Over-emphasize the slowness and trembling.\n5.  **Follow Through**: After picking up the cup, the robot must continue to express anger and the burden of the weight. This will involve a slow, heavy, frustrated movement and a final angry shake while still holding the cup.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with an aggressive, focused tilt of the suction cup."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: A sharp, frustrated jerk of the arm, as if slamming a fist on the table, showing impatience and anger before even moving."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still for a dramatic beat after the angry jerk, letting the frustration sink in."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm quickly and forcefully towards the cup, but stop just above it, with an aggressive, downward-tilted suction cup, glaring at the object."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause briefly above the cup, holding still, as if gathering the 'strength' or 'will' to deal with this heavy object."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Lower the arm very slowly and with significant, visible jitter, as if the cup's weight is already a struggle before contact. The suction cup droops slightly in frustration."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Activate suction. Then, lift the cup extremely slowly and with exaggerated, heavy trembling, struggling immensely to get it off the table. Hold it mid-air, visibly strained."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A long, strained pause after lifting, holding the heavy cup, trembling with effort and frustration."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "side"
+      },
+      "description": "Slowly and heavily move the cup a short distance to the side, as if it's a burdensome object that's difficult to maneuver. The movement is sluggish and jittery."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: A final, angry, strained shake of the arm while still holding the cup, showing extreme frustration with its weight and the effort required."
+    }
+  ]
+}

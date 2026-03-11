@@ -1,0 +1,44 @@
+{
+  "reasoning": "The instruction \"pick up the cup\" is completely neutral and lacks any emotional cues. Therefore, the detected emotion is 'neutral'. I will plan the steps to be efficient, smooth, and precise, without any exaggeration or specific emotional markers. I will use brief `wait()` pauses to ensure readability of each action, and the final step will be a follow-through to a stable, neutral holding position, as required by the animation principles.",
+  "emotion": "neutral",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup's position on the table with a direct scan."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "A brief, neutral pause to signal readiness before initiating movement."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm smoothly and directly above the cup, maintaining a steady pace."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm in a controlled manner, activate suction, and lift the cup smoothly."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "A short, neutral pause to confirm the cup is securely held."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "neutral_holding_position"
+      },
+      "description": "Follow Through: Move the arm to a stable, slightly raised, and centered holding position, signifying task completion."
+    }
+  ]
+}

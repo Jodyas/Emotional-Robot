@@ -1,0 +1,64 @@
+{
+  "reasoning": "The user explicitly requested to pick up the cup 'with anger' and also mentioned 'hot cup'. This combines into an 'angry_hot' emotion. To show anger, I will use fast, forceful, and jerky movements. To show 'hot', I will have the robot quickly drop the cup after picking it up and then react as if burned. I will use anticipation by having the arm jerk aggressively before moving. Timing will be used with wait() calls for dramatic pauses: before the angry grab, a freeze after picking up (realization of heat), and after dropping. Exaggeration will be applied through extreme speed and violent shaking. The follow-through will be a final, exaggerated shaking of the arm in pain/anger.",
+  "emotion": "angry_hot",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with an aggressive, quick scan."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Jerk the arm aggressively and impatiently, showing building anger before the move."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A tense, brief pause, letting the anger simmer before the action."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Slam the arm down forcefully and quickly towards the cup, showing aggression and impatience."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Grab the cup with an aggressive, fast motion, then immediately recoil slightly as if burned by the hot object."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Freeze! A brief, sharp moment of shock and realization that the cup is burning hot."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "drop"
+      },
+      "description": "Exaggeration: Violently jerk the arm away from the table, trying to get rid of the hot object in a panic."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Release the cup abruptly and forcefully, as if throwing it away due to the heat."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: A moment of relief/shock after dropping the hot object. Hold still briefly."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Shake the arm violently and rapidly, as if trying to cool off a burned hand, expressing both anger at the situation and pain from the heat."
+    }
+  ]
+}

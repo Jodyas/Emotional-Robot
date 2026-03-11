@@ -1,0 +1,69 @@
+{
+  "reasoning": "The user explicitly requested 'curious' emotion and to 'act out it's heavy'. I will combine these. [Show, Don't Tell]: Curiosity will be shown through slow, investigative movements and a tilted suction cup. Heaviness will be shown through slow, strained lifting, significant jitter, and a slight struggle. [Anticipation]: Before approaching, the arm will 'look' at the cup with a curious tilt. [Timing & Pacing]: I will insert `wait()` steps to emphasize the moments of curiosity and the struggle of lifting. [Exaggeration]: The jitter and slowness for 'heavy' will be exaggerated. [Appeal]: The suction cup will tilt to show curiosity. [Follow Through]: After picking up, the arm will continue to struggle slightly with the weight while examining it curiously.",
+  "emotion": "curious_heavy",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table.",
+      "tilt": "neutral"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Slowly tilt the suction cup to the side, 'looking' at the cup with curiosity, then slowly focus on it.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still, observing the cup with a curious tilt, building anticipation for the interaction."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Move the arm very slowly and deliberately towards the cup, hovering slightly above it, as if cautiously investigating its nature. Maintain a curious tilt.",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still above the cup, a moment of contemplation before attempting to lift, still curious."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm slowly. Activate suction. Lift the cup *very slowly* and with significant, exaggerated trembling and jitter, simulating immense effort due to its perceived heaviness. There should be a slight dip before the full lift, as if struggling.",
+      "trembling": "high",
+      "speed": "very_slow",
+      "tilt": "strained_up"
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after lifting, holding the cup aloft with continued, exaggerated trembling, emphasizing the struggle with its weight."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "examine"
+      },
+      "description": "Follow Through: Slowly bring the heavy, trembling cup closer to the robot's 'body', still struggling slightly with the weight, as if examining this surprisingly heavy object with continued curiosity. The suction cup maintains a curious tilt.",
+      "trembling": "medium",
+      "speed": "slow",
+      "tilt": "curious_side"
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: End with the arm holding the cup, swaying slightly from the weight, suction cup tilted, still showing curiosity about its unexpected heaviness.",
+      "tilt": "curious_side"
+    }
+  ]
+}

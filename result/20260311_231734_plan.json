@@ -1,0 +1,52 @@
+{
+  "reasoning": "The user explicitly requested to 'pick up the cup with anger'. I will translate this into physical actions using animation principles. \n[Emotion]: 'angry'.\n[Show, Don't Tell]: Anger will be expressed through fast, jerky, and forceful movements, with aggressive pauses.\n[Anticipation]: Before moving to the cup, the arm will perform a sharp, frustrated jerk.\n[Timing & Pacing]: I will use short, tense `wait()` pauses to emphasize the aggression before and after key actions.\n[Exaggeration]: The arm's movements will be amplified in speed and force.\n[Appeal]: The suction cup will tilt aggressively downwards during the approach.\n[Follow Through]: After picking up the cup, the arm will not simply stop but will hold the cup with a defiant, tense gesture, perhaps with a slight tremor of residual anger.",
+  "emotion": "angry",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table with a quick, almost impatient scan."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Jerk the arm sharply downwards and then quickly back up, showing a burst of frustration and impatience before moving."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still for a brief, tense moment, letting the anger build before the next action."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Rush the arm directly above the cup with a forceful, almost slamming motion, tilting the suction cup aggressively downwards."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold perfectly still, hovering aggressively above the cup, like a predator about to strike."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Slam the arm down quickly, activate suction with a sharp click, and then thrust the cup upwards abruptly and forcefully."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold the cup high and still for a brief moment, showing defiance in its grasp."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Follow Through: Thrust the arm forward slightly with the cup, then pull it back sharply and hold it tightly, perhaps with a slight, controlled tremor of residual anger, before settling into a defiant pose."
+    }
+  ]
+}

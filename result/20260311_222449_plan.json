@@ -1,0 +1,85 @@
+{
+  "reasoning": "The user explicitly asked to 'look at the cup curiously' and then 'pick up the slippery cup, slip the cup a bit when picking up'. This indicates a 'curious' emotion, combined with 'perplexed' or 'frustrated' due to the 'slippery' nature of the object. I will use 'curious_perplexed'.\n\n[Anticipation]: Before approaching, the robot will express curiosity by tilting its end-effector and moving around the cup to examine it.\n[Show, Don't Tell] & [Act Out Object Properties]: To show 'slippery', the robot will attempt to pick up the cup, briefly 'slip' (deactivate suction and quickly re-adjust), and then successfully pick it up. After picking it up, it will hold it with continuous, small, careful adjustments to convey the ongoing slipperiness.\n[Timing & Pacing]: I will insert `wait()` steps to emphasize the curious examination, the moment of the slip, and the careful handling afterward.\n[Exaggeration]: The slip will be a clear, brief drop and re-grab. The careful handling will involve noticeable micro-adjustments.\n[Appeal]: The suction cup will tilt to show curiosity. After the slip, it might droop slightly in perplexity before regaining focus.\n[Follow Through]: After successfully picking up the slippery cup, the robot will bring it closer, still handling it with exaggerated care and slight jitters, as if continuously trying to maintain grip.",
+  "emotion": "curious_perplexed",
+  "steps": [
+    {
+      "action": "detect_object",
+      "args": {
+        "name": "cup"
+      },
+      "description": "Detect and confirm the cup position on the table."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Anticipation: Tilt the suction cup to the side, as if looking at the cup with curiosity, then slowly move it slightly left and right to observe."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Slowly move the arm in a small arc around the cup, examining it from different angles, still showing curiosity."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Hold still above the cup, letting the curiosity settle before the approach."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Approach the cup slowly and cautiously, hovering directly above it, preparing to pick up."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Lower the arm to the cup, activate suction, and begin to lift."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Brief pause as the cup is lifted slightly, then a sudden, small downward jerk as it 'slips'."
+    },
+    {
+      "action": "deactivate_suction",
+      "args": {},
+      "description": "Briefly deactivate suction to simulate the cup slipping from the grip."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "cup"
+      },
+      "description": "Quickly re-adjust the arm slightly downwards and sideways to 'catch' the slipping cup, showing a moment of surprise/perplexion."
+    },
+    {
+      "action": "pick_up",
+      "args": {
+        "object": "cup"
+      },
+      "description": "Re-activate suction and carefully lift the cup again, this time successfully."
+    },
+    {
+      "action": "wait",
+      "args": {},
+      "description": "Timing: Pause after successfully picking up, showing relief but also continued caution."
+    },
+    {
+      "action": "express_emotion",
+      "args": {},
+      "description": "Hold the cup with slight, continuous micro-adjustments and a gentle sway, as if trying to maintain a secure grip on a slippery object. The suction cup might droop slightly in perplexity."
+    },
+    {
+      "action": "move_to",
+      "args": {
+        "target": "safe_position"
+      },
+      "description": "Follow Through: Slowly bring the cup closer to the robot's 'body', still handling it with exaggerated care and slight jitters, as if continuously trying to maintain grip on the slippery surface."
+    }
+  ]
+}
