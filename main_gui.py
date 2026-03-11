@@ -2,6 +2,8 @@
 # 使用 tkinter 建立三區塊介面：指令輸入、步驟展示、程式碼展示
 # 背景執行緒處理 LLM 呼叫和 PyBullet 模擬，避免 GUI 卡頓
 
+import os
+import time
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox
 import threading
@@ -247,6 +249,17 @@ class CaPGUI:
             code_str = self.codegen.generate(steps_dict, inferred_emotion)
             self.root.after(0, self._show_code, code_str)
             self._set_status("✅ Stage 2 done.  🔄 Launching PyBullet...", ACCENT_GREEN)
+
+            # ── Dump Results ─────────────────────────
+            os.makedirs("result", exist_ok=True)
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+            try:
+                with open(os.path.join("result", f"{timestamp}_plan.json"), "w", encoding="utf-8") as f:
+                    f.write(plan_json)
+                with open(os.path.join("result", f"{timestamp}_code.py"), "w", encoding="utf-8") as f:
+                    f.write(code_str)
+            except Exception as e:
+                print(f"Failed to dump results: {e}")
 
             # ── Stage 3: PyBullet Execution ───────────
             with self._lock:
