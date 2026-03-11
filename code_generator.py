@@ -52,7 +52,7 @@ Animation & Physics Principles:
 - Fragile/Careful: Require smooth slow movement `steps=300`, no noise `noise_amp=0.0`.
 - Anticipation: Before moving, add a small reverse/away movement or a hovering `wait()` with tiny trembles.
 - Follow Through: After dropping/picking, ALWAYS add a lingering movement (e.g., dropping hand heavily, or excitedly shaking).
-- **Timing & Pacing**: Use `env.wait()` to insert dramatic beats between motions. Short beat: `steps=30-50`. Long dramatic pause: `steps=150-250`. NEVER skip pauses — the silences between actions are what make the animation feel alive.
+- **Timing & Pacing**: Use `env.wait()` to insert dramatic beats between motions. Short beat: `steps=30-50`. Long dramatic pause: `steps=100-150`. NEVER skip pauses — the silences between actions are what make the animation feel alive.
 
 Rules:
 - Generate ONLY the body of def execute(env): — nothing else.
