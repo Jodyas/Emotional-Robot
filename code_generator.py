@@ -19,10 +19,10 @@ Available API:
   env.get_object_position(name: str) -> list[float]
       Returns [x, y, z] world coordinates of an object. Supported name: "cup".
 
-  env.move_to(target: str | list[float], steps: int = 200, force: float = 200, noise_amp: float = 0.0, noise_freq: float = 0.0, tilt: list = None)
+  env.move_to(target: str | list[float], steps: int = 150, force: float = 200, noise_amp: float = 0.0, noise_freq: float = 0.0, tilt: list = None)
       Moves the robot arm end-effector to the target.
       `target` can be the string "cup" (it will automatically offset to hover above the cup) OR an absolute [x, y, z] coordinate list.
-      `steps` determines the speed and smoothness. Less steps (e.g. 30-50) is fast/jerky. More steps (e.g. 200) is slow/smooth.
+      `steps` determines the speed and smoothness. Less steps (e.g. 30-50) is fast/jerky. More steps (e.g. 80-120) is slow/smooth.
       `force` determines motor force. High force (e.g. 500-600) is aggressive.
       `noise_amp` and `noise_freq` control physical jitter/shaking. 
          - To tremble gently (like hesitation/caution), use noise_amp=0.01, noise_freq=0.5
@@ -48,20 +48,20 @@ Available API:
 
 Animation & Physics Principles:
 - Apply 'Show, Don't Tell' by converting physical properties into motion parameters.
-- Heavy Objects: Require high `force=800`, very high `steps=500+` (slow movement), and a low-frequency heavy jitter `noise_amp=0.02, noise_freq=0.3`.
-- Fragile/Careful: Require smooth slow movement `steps=300`, no noise `noise_amp=0.0`.
+- Heavy Objects: Require high `force=800`, very high `steps=200+` (slow movement), and a low-frequency heavy jitter `noise_amp=0.02, noise_freq=0.3`.
+- Fragile/Careful: Require smooth slow movement `steps=120`, no noise `noise_amp=0.0`.
 - Anticipation: Before moving, add a small reverse/away movement or a hovering `wait()` with tiny trembles.
 - Follow Through: After dropping/picking, ALWAYS add a lingering movement (e.g., dropping hand heavily, or excitedly shaking).
-- **Timing & Pacing**: Use `env.wait()` to insert dramatic beats between motions. Short beat: `steps=30-50`. Long dramatic pause: `steps=100-150`. NEVER skip pauses — the silences between actions are what make the animation feel alive.
+- **Timing & Pacing**: Use `env.wait()` to insert dramatic beats between motions. Short beat: `steps=20-35`. Long dramatic pause: `steps=70-120`. NEVER skip pauses — the silences between actions are what make the animation feel alive.
 
 Rules:
 - Generate ONLY the body of def execute(env): — nothing else.
 - Use only the API methods listed above.
 - Add a brief comment before each step based on the description.
 - To express emotions, you translate the step into `move_to` or `wait` commands with appropriate `steps`, `force`, `noise_amp`, and `noise_freq`.
-  - 'happy' -> bouncing/waving motion, targeting coordinates above the table, fluid (steps=200).
+  - 'happy' -> bouncing/waving motion, targeting coordinates above the table, fluid (steps=80-100).
   - 'angry/hot' -> smashing down forcefully (fast steps=30, high force), followed by chaotic `move_to` in the air with `noise_amp=0.1, noise_freq=2.0`.
-  - 'cautious' -> very slow `move_to` (steps=400) with slight trembles (`noise_amp=0.005`).
+  - 'cautious' -> very slow `move_to` (steps=150) with slight trembles (`noise_amp=0.005`).
 - YOU MUST NOT CAUSE ERRORS by calling non-existent methods. All physical expressions of emotion described in the JSON must be "choreographed" using a loop or sequence of `move_to` to specific explicit coordinates [x, y, z].
 """
 
