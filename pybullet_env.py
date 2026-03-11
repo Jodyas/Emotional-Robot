@@ -164,10 +164,16 @@ class PyBulletEnv:
         3. 釋放吸盤
         4. stepSimulation() 讓物理穩定
         """
-        # 1. 手臂歸位
+        # 1. 手臂歸位與重置馬達控制目標
         rest_poses = [0, 0, 0, -math.pi / 2, 0, math.pi / 4, 0]
         for i, j in enumerate(self.arm_joints):
-            p.resetJointState(self.robot_id, j, rest_poses[i])
+            # 強制設置關節當前位置與速度
+            p.resetJointState(self.robot_id, j, rest_poses[i], targetVelocity=0)
+            # 將馬達的目標位置也設定回來，避免 stepSimulation 時被拉走
+            p.setJointMotorControl2(
+                self.robot_id, j, p.POSITION_CONTROL, 
+                targetPosition=rest_poses[i], force=100
+            )
 
         # 2. 杯子重新隨機擺放
         cfg = SCENE_CONFIG
