@@ -273,10 +273,6 @@ class PyBulletEnv:
             self._show_emotion_text(emotion)
 
         # 暫停 idle_loop，避免 stepSimulation() race condition
-        p.removeAllUserDebugItems()
-        self._show_emotion_text(emotion)
-
-        # 暫停 idle_loop，避免 stepSimulation() race condition
         self._paused = True
         time.sleep(0.05)
 
