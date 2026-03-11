@@ -43,13 +43,14 @@ class CaPGUI:
       底部  — 狀態列
     """
 
-    def __init__(self, root: tk.Tk, use_gemini: bool = False):
+    def __init__(self, root: tk.Tk, use_gemini: bool = False, debug: bool = False):
         self.root = root
         self.root.title("CaP Robot System — Emotional Suction Arm")
         self.root.configure(bg=BG_DARK)
         self.root.geometry("980x700")
         self.root.minsize(820, 580)
         self.use_gemini = use_gemini
+        self.debug_mode = debug
 
         # 系統元件
         self.planner   = TaskPlanner(use_gemini=use_gemini)
@@ -272,7 +273,8 @@ class CaPGUI:
             self.sim_env.run_code(
                 code_str,
                 emotion=inferred_emotion,
-                status_callback=lambda msg: self._set_status(msg, ACCENT_GOLD)
+                status_callback=lambda msg: self._set_status(msg, ACCENT_GOLD),
+                debug=getattr(self, "debug_mode", False)
             )
 
             self._set_status(f"🎉 Done! (Emotion: {inferred_emotion})", ACCENT_GREEN)
@@ -335,8 +337,9 @@ class CaPGUI:
 def main():
     import sys
     use_gemini = "-gemini" in sys.argv or "--gemini" in sys.argv
+    debug_mode = "-debug" in sys.argv or "--debug" in sys.argv
     root = tk.Tk()
-    app = CaPGUI(root, use_gemini=use_gemini)
+    app = CaPGUI(root, use_gemini=use_gemini, debug=debug_mode)
     root.protocol("WM_DELETE_WINDOW", app.on_close)
     root.mainloop()
 

@@ -183,10 +183,36 @@ class PyBulletEnv:
         )
 
     # ------------------------------------------------------------------
+    # Emotion Debug Text（顯示在 PyBullet 視窗中）
+    # ------------------------------------------------------------------
+
+    def _show_emotion_text(self, emotion: str):
+        """在 PyBullet 視窗中顯示情緒標示"""
+        label_map = {
+            "happy": ("HAPPY  :)", [0.2, 0.9, 0.2]),   # 綠色
+            "angry": ("ANGRY  >:(", [0.9, 0.2, 0.2]),  # 紅色
+            "neutral": ("NEUTRAL", [0.8, 0.8, 0.8])    # 灰色
+        }
+        
+        # 如果是字典裡找不到的未知情緒，就直接轉大寫並用白色顯示
+        if emotion in label_map:
+            text, color = label_map[emotion]
+        else:
+            text, color = (emotion.upper(), [1.0, 1.0, 1.0])
+
+        p.addUserDebugText(
+            text,
+            textPosition=[0.0, -0.5, 1.2],
+            textColorRGB=color,
+            textSize=2.5,
+            lifeTime=0  # 永遠顯示直到清除
+        )
+
+    # ------------------------------------------------------------------
     # Code Execution（執行前暫停 idle_loop，避免 race condition）
     # ------------------------------------------------------------------
 
-    def run_code(self, code_str: str, emotion: str = "happy", status_callback=None):
+    def run_code(self, code_str: str, emotion: str = "happy", status_callback=None, debug: bool = False):
         """
         在沙盒環境內執行 LLM 生成的 Python 程式碼。
         沙盒只注入 'env'（RobotPrimitives），禁止其他系統呼叫。
@@ -195,8 +221,14 @@ class PyBulletEnv:
             code_str:        LLM 生成的完整 Python code（包含 def execute(env):）
             emotion:         情緒（用於顯示 debug text）
             status_callback: 狀態更新回呼函數（用於 GUI 更新）
+            debug:           是否顯示情緒 debug 文字 (預設 False)
         """
         # 清除舊的 debug text 並顯示新情緒
+        p.removeAllUserDebugItems()
+        if debug:
+            self._show_emotion_text(emotion)
+
+        # 暫停 idle_loop，避免 stepSimulation() race condition
         p.removeAllUserDebugItems()
         self._show_emotion_text(emotion)
 
