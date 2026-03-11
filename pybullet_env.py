@@ -9,6 +9,7 @@ import random
 import threading
 import os
 import shutil
+import ctypes
 
 from config import SCENE_CONFIG
 from primitives import RobotPrimitives
@@ -43,6 +44,12 @@ class PyBulletEnv:
 
         # 連線 PyBullet GUI
         self.physics_client = p.connect(p.GUI)
+
+        # Windows: 將系統 timer resolution 提升至 1ms，修復 time.sleep() 精度問題
+        try:
+            ctypes.windll.winmm.timeBeginPeriod(1)
+        except Exception:
+            pass  # Non-Windows platform, ignore
         
         # 處理中文路徑導致 loadURDF 失敗的 Bug
         data_path = pybullet_data.getDataPath()
@@ -324,3 +331,8 @@ class PyBulletEnv:
         self._running = False
         if p.isConnected():
             p.disconnect()
+        # Windows: 復原系統 timer resolution
+        try:
+            ctypes.windll.winmm.timeEndPeriod(1)
+        except Exception:
+            pass
